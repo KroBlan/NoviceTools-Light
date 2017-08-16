@@ -1,2 +1,2 @@
 "# NoviceTools-Light"
-bla bla bla
+Kro Blan
