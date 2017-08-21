@@ -226,8 +226,8 @@ h3 {
     display: none;
     position: absolute;
     width: 100%;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 55vh;
+    max-height: 55vh;
     background-color: #191567;
     /*    border: 5px white solid;*/
     z-index: 99;
@@ -368,8 +368,8 @@ h6 {
     display: none;
     position: absolute;
     width: 100%;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 55vh;
+    max-height: 55vh;
     background-color: #191567;
 
 }
@@ -400,8 +400,8 @@ h6 {
     display: none;
     position: absolute;
     width: 100%;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 55vh;
+    max-height: 55vh;
     background-color: #191567;
     z-index: 999;
 
@@ -435,8 +435,8 @@ h6 {
     display: none;
     position: absolute;
     width: 100%;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 100%;
+    max-height: 100vh;
     background-color: #191567;
     z-index: 999;
 
@@ -944,9 +944,9 @@ footer a:active {
     position: absolute;
     border: 0px;
     width: 20px;
-    height: 4px;
-    border-radius: 20%;
-    background-color: #37FDFC;
+    height: 5px;
+    border-radius: 5px;
+    background-color: rgba(55, 253, 252, 0.2);
     transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
     -moz-user-select: none;
@@ -960,7 +960,7 @@ footer a:active {
     border: 0px;
     width: 12px;
     height: 12px;
-    background-color: #37FDFC;
+    background-color: rgba(55, 253, 252, 0.2);;
     border-radius: 50%;
     transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
