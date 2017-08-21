@@ -1,0 +1,1016 @@
+/* ------------------------------------------------------------------------- */
+/* BEATZ N BITZ */
+/* PROJET REALISE POUR BGE */
+/* V1 2017 */
+/* ------------------------------------------------------------------------- */
+
+/*
+-- COULEURS --
+BLEU DARK: #16125a
+BLEU NEON: #37FDFC
+BLEU PLUS CLAIR: #191567;
+ROUGE ORANGE: #FF4F4F
+GRIS CLAIR: #EEE
+NOIR: #1b212c
+
+*/
+
+/* ------------------------------------------------------------------------- */
+/* FONTS FAMILY */
+/* ------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v14/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Abel Regular'), local('Abel-Regular'), url(https://fonts.gstatic.com/s/abel/v7/brdGGFwqYJxjg2CD1E9o7g.woff2) format('woff2');
+
+}
+
+/* ------------------------------------------------------------------------- */
+/* BASES */
+/* ------------------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Abel', verdena, sans-serif;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* 10px */
+}
+
+body, main {
+    margin: 0;
+    font-size: 1.6rem;
+    background-color: #16125a;
+    color: #eee;
+
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+
+
+/* ------------------------------------------------------------------------- */
+/* LE HEADER */
+/* ------------------------------------------------------------------------- */
+
+#mainHeader {
+    width: 100%;
+    min-height: 10vh;
+    /*    border: 2px red solid;*/
+
+}
+
+/* > les imgs < */
+#mainHeader img {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    margin: 20px;
+}
+
+#logo {
+    position: fixed;
+    z-index: 0;
+}
+
+/*---  LE MENU PRINCIPAL ---*/
+#menuMain {
+    float: right; 
+    line-height: 10vh;
+    margin-right: 10px;
+}
+
+#menuMain ul {
+    display: inline-block;
+}
+
+#menuMain li {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    color: #37FDFC;
+
+}
+
+#menuMain a {
+    padding: 2px;
+    color: #FF4F4F;
+    transition: 0.4s;
+    font-size: 1em;
+}
+
+#menuMain a:hover {
+    color: #37FDFC;
+    border-bottom: 1px #37FDFC solid;
+    transition: 0.4s;
+
+}
+
+#menuMain a:active {
+    color: #eee;
+
+}
+
+#menuMain li:last-child {
+    /* BORDER POUR "SE CONNECTER" */
+}
+
+/*---  LE MENU MOBILE---*/
+
+#mobileHeader{
+    position: fixed;
+    display: none;
+    width: 100%;
+    min-height: 10vh;
+}
+
+.mobilemenuOpen {
+    float: right;
+    line-height: 10vh;
+    margin-right: 20px;
+    font-size: 2em;
+    color: #FF4F4F;
+
+}
+.mobilemenu {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #191567;
+    z-index: 9;
+
+}
+
+.mobilemenuClose {
+    float: right;
+    line-height: 10vh;
+    margin-right: 20px;
+    font-size: 2em;
+    color: #FF4F4F;
+
+}
+
+.mobilemenu ul {
+
+
+}
+
+
+.mobilemenu li {
+    padding: 5px;
+    margin: 0 10px 0 10px;
+    border-bottom: 1px red solid;
+
+}
+
+
+.mobilemenu a {
+    padding: 2px;
+    color: #FF4F4F;
+    transition: 0.4s;
+    font-size: 2em;
+}
+
+.mobilemenu a:hover {
+    color: #37FDFC;
+    border-bottom: 1px #37FDFC solid;
+    transition: 0.4s;
+
+}
+
+.mobilemenu a:active {
+    color: #eee;
+
+}
+
+h3 {
+    font-size: 1em;
+    color: #37FDFC;
+}
+/* ------------------------------------------------------------------------- */
+/* LE MIDDLE PAGE */
+/* ------------------------------------------------------------------------- */
+
+.middlepage {
+    width: 100%;
+    min-height: 85vh;
+}
+
+/* ------------------------------------------------------------------------- */
+/* LE CONTENU */
+/* ------------------------------------------------------------------------- */
+
+
+/*---  LA LIBRARIE---*/
+#library {
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+
+}
+.libraryOpened {
+    display: none;
+    position: absolute;
+    width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
+    background-color: #191567;
+    /*    border: 5px white solid;*/
+    z-index: 99;
+
+}
+
+.libraryClose {
+    position: relative;  /* A REVOIR position en relative */
+    display: none;
+    cursor: pointer;
+    float: right;
+    z-index: 999;
+
+}
+
+.libraryOpen {
+    cursor: pointer;
+    float: right;
+    z-index: 100;
+}
+.libraryMain {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    min-height: 60vh;
+
+
+}
+.libraryContent {
+    margin: 0 auto;
+}
+
+.libraryCategories {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 95%;
+    margin: 20px;
+}
+
+.librarySamples {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 850px; /* A REVOIR */
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.samples {
+    min-width: 80px;
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    /*    border-radius: 10px;*/
+    color: #37FDFC;
+    cursor: pointer;
+    transition: 0.4s;
+    background-color: #16125a;
+    border: 3px #37FDFC solid;
+    border-radius: 5px;
+
+}
+
+.samples:hover {
+    color: #FF4F4F;
+    cursor: pointer;
+    transition: 0.4s;
+    border: 3px #FF4F4F solid;
+
+}
+
+
+/*---  LES TITRES*/
+
+h2 {
+    color: #eee;
+    font-size: 2em;
+}
+
+h6 {
+    margin: 0 auto;
+    line-height: 80px;
+    /*    color: #37FDFC;*/
+    font-size: 1em;
+}
+
+
+/* > Les listes < */
+
+.libraryCategories ul {
+
+}
+
+.libraryCategories li {
+
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    color: #eee;
+    margin: 0 auto;
+
+
+}
+
+
+.libraryCategories a {
+    padding: 2px;
+    color: #FF4F4F;
+    transition: 0.4s;
+    font-size: 1em;
+}
+
+.libraryCategories a:hover {
+    color: #37FDFC;
+    border-bottom: 1px #37FDFC solid;
+    transition: 0.4s;
+
+}
+
+.libraryCategories a:active {
+    color: #eee;
+
+}
+
+/*---  LES OPTIONS*/
+#options {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+
+}
+.optionsOpened {
+    display: none;
+    position: absolute;
+    width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
+    background-color: #191567;
+
+}
+
+.optionsClose {
+    position: relative;
+    display: none;
+    cursor: pointer;
+    float: right;
+}
+
+.optionsOpen {
+    cursor: pointer;
+    float: right;
+    color: #eee;
+    margin: 50px 0 0 0;
+    z-index: -1;
+}
+
+/*---  SHARE*/
+#share {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+}
+.shareOpened {
+    display: none;
+    position: absolute;
+    width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
+    background-color: #191567;
+    z-index: 999;
+
+}
+
+.shareClose {
+    position: relative;
+    display: none;
+    cursor: pointer;
+    float: right;
+    z-index: 109;
+
+}
+
+.shareOpen {
+    cursor: pointer;
+    float: right;
+    color: #eee;
+    margin: 100px 0 0 0;
+    z-index: 1;
+}
+
+/*---  FULL SCREEN*/
+#fullscreen {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+}
+.fullscreenOpened {
+    display: none;
+    position: absolute;
+    width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
+    background-color: #191567;
+    z-index: 999;
+
+}
+
+.fullscreenClose {
+    position: relative;
+    display: none;
+    cursor: pointer;
+    float: right;
+    z-index: 109;
+
+}
+
+.fullscreenOpen {
+    -webkit-align-content: flex-end; 
+    align-content: flex-end; 
+    cursor: pointer;
+    float: right;
+    color: #eee;
+    margin: 450px 0 0 0;
+    z-index: 1;
+}
+
+
+/*---  LE CERCLE MUSICAL --*/
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 55vh;
+    max-height: 55vh;
+    background-color: #16125a;
+
+}
+
+#cercle_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 55vh;
+    /*    max-height: 60vh;*/
+    /*    border: 2px red solid;*/
+}
+
+
+#cercle {
+    position: absolute;
+    width: 20%; /* 500px*/
+    /*height: 500px*/
+    /*    background-color: white;;*/
+    /*border-radius: 100%;*/
+
+}
+
+#cercle_background {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /*width: 485px*/
+    /*height: 485px*/
+    /*    background-color: white;
+        border-radius: 100%;*/
+}
+
+
+/* > les imgs < */
+#cercle_logo img {
+    width: 30%; /* 350px*/
+    margin: 20px;
+    /*    margin-top: 50px;*/
+}
+
+#library img {
+    margin: 20px 20px 0px 0px;
+}
+
+#options img {
+    margin: 20px 20px 0px 0px;
+}
+
+#share img {
+    margin: 20px 20px 0px 0px;
+}
+
+#fullscreen img {
+    margin: 20px 20px 0px 0px;
+}
+/*#options img:hover {
+    background-color: #37FDFC;
+    border-radius: 10px;
+
+}
+
+#library img:hover {
+    background-color: #37FDFC;
+    border-radius: 10px;  
+}*/
+
+/* ------------------------------------------------------------------------- */
+/* LES OUTILS UTILISATEURS */
+/* ------------------------------------------------------------------------- */
+
+/*---  LES CONTROLS---*/
+#openControls {
+    position: absolute;
+    width: 100%;
+    margin-right: 20px;
+    border-top: 1px rgba(255,255,255,0.1) solid;
+
+
+}
+
+.controlsClose {
+    display: block;
+    cursor: pointer;
+    float: right;
+    top: 0px;
+    right: 0px;
+    color: #FF4F4F;
+    margin-right: 20px;
+    margin-top: 10px;
+
+}
+
+.controlsClose:hover {
+    color: #37FDFC;
+}
+
+.controlsOpen {
+    display: none;
+    cursor: pointer;
+    float: right;
+    top: 0px;
+    right: 0px;
+    color: #FF4F4F;
+    margin-right: 20px;
+    margin-top: 10px;
+
+}
+
+.controlsOpen:hover {
+    color: #37FDFC;
+}
+
+#user_controls {
+    display: block;
+    min-height: 28vh;
+    width: 100%;
+
+}
+
+#launchpad {
+    width: 50%; /* A REVOIR */
+    margin: 0 auto;
+    min-height: 19vh;
+    max-height: 19vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.launchpad {
+    min-width: 80px;
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    /*    width:6vw; 
+        height:6vw;
+        margin:1vw 10px;*/
+    border-radius: 10%;
+    color: #37FDFC;
+    cursor: pointer;
+    transition: 0.4s;
+    background-color: #16125a;
+    border: 2px #37FDFC solid;
+
+    -moz-box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.1);
+    -webkit-box-shadow: inset 1px 100px 10px 0px rgba(55, 253, 252, 0.1);
+    -o-box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.1);
+    box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.1);
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=rgba(55, 253, 252, 0.1), Direction=134, Strength=1000);
+
+}
+
+.launchpad:hover {
+    -moz-box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.9);
+    -webkit-box-shadow: inset 1px 100px 10px 0px rgba(55, 253, 252, 0.9);
+    -o-box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.9);
+    box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.9);
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=rgba(55, 253, 252, 0.9), Direction=134, Strength=1000);
+
+    transition: 0.4s;
+}
+
+/* > les titres < */
+
+#launchpad h1 {
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 2em;
+}
+
+#tools h1 {
+    margin: 0 auto;
+    padding: 10px; 
+}
+
+#tools {
+    margin: 0 auto;
+    min-height: 9vh;
+    max-height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*    min-width: 60px;
+        width: 60px;
+        height: 60px;
+        margin: 10px;*/
+    margin: 20px;
+    width:4vw; 
+    height:4vw;
+    margin:1vw 10px;
+    background-color: #16125a;
+    border: 1px #FF4F4F solid;
+    border-radius: 10%;
+    color: #FF4F4F;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.tools:hover {
+    background-color: #16125a;
+    -moz-box-shadow: inset 1px 1px 100px 0px rgba(255, 79, 79, 0.3);
+    -webkit-box-shadow: inset 1px 100px 10px 0px rgba(255, 79, 79, 0.3);
+    -o-box-shadow: inset 1px 1px 100px 0px rgba(255, 79, 79, 0.3);
+    box-shadow: inset 1px 1px 100px 0px rgba(255, 79, 79, 0.3);
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=rgba(255, 79, 79, 0.3), Direction=134, Strength=1000);
+    transition: 0.4s;
+}
+
+#tools img {
+    width: 50%;
+}
+
+#settings {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 25%;
+    min-height: 28vh;
+    padding: 20px;
+
+}
+
+#sync {
+    width: 10%;
+    height: 2%;
+    background-color: #FF4F4F;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+}
+
+/* > le metronome< */
+
+#metronome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    height: 2vh;
+    margin: 0 10px 0 0;
+
+
+}
+
+#metronome_1 {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: #FF4F4F;
+    margin: 0 3px 0 0
+}
+
+#metronome_2 {
+    width: 9px;
+    height: 9px;
+    border: 1px #FF4F4F solid;
+    border-radius: 100%;
+}
+
+
+/* ------------------------------------------------------------------------- */
+/* CLASSES (CONTAINER_CENTER...)*/
+/* ------------------------------------------------------------------------- */
+
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 85vh;
+
+}
+
+.container_connexion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    min-height: 70vh;
+    border: 1px #FF4F4F solid;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+/* > les titres < */
+
+.container_connexion h1 {
+    padding: 10px;
+    font-size: 3em;
+    color: #FF4F4F;
+}
+
+/* > les liens < */
+
+.container_connexion a{
+    color: #37FDFC;
+    font-size: 1em;
+    padding: 2px;
+}
+
+.container_connexion a:hover{
+    border-bottom: 1px #37FDFC solid;
+}
+
+
+/* ------------------------------------------------------------------------- */
+/* LE FOOTER */
+/* ------------------------------------------------------------------------- */
+
+footer {
+    min-height: 5vh;
+    width: 100%;
+    color: #eee;
+    z-index: 999999;
+    line-height: 5vh;
+
+
+}
+
+footer ul {
+    display: inline-block;
+}
+
+footer li {
+    display: inline-block;
+    margin:  0 0 20px 20px;
+    padding: 2px;
+    font-size: 0.8em;
+    color: #FF4F4F;
+
+}
+
+footer a {
+    padding: 2px;
+    color: #FF4F4F;
+    transition: 0.4s;
+}
+
+footer a:hover {
+    color: #37FDFC;
+    border-bottom: 1px #37FDFC solid;
+    transition: 0.4s;
+
+}
+
+footer a:active {
+    color: #eee;
+
+}
+
+/* ------------------------------------------------------------------------- */
+/* LES ANIMATIONS */
+/* ------------------------------------------------------------------------- */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.4s;
+    animation-delay: 0s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
+
+.pulse {
+    box-shadow: 0 0 0 rgba(255,255,255, 0.4);
+    animation: pulse 2s infinite;
+}
+.pulse:hover {
+    animation: none;
+}
+
+
+.display_none {
+    display: none;
+}
+
+
+/* ------------------------------------------------------------------------- */
+/* LOGIN */
+/* ------------------------------------------------------------------------- */
+
+.alert {
+    display: none;
+    z-index: 99;
+    color: #FF4F4F;
+    font-size: 1.5em;
+    margin: 15px;
+    background-color: #16125a;
+    /*    border: 1px #FF4F4F solid;
+            border-radius: 20px;*/
+    padding: 10px;
+
+}
+
+.display_none {
+    display: none;
+}
+
+/* ------------------------------------------------------------------------- */
+/* NO JS */
+/* ------------------------------------------------------------------------- */
+
+.nojs {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 88vh;
+    max-height: 88vh;
+    z-index: 99999;
+    background-color: #16125a;
+}
+
+.nojsmessage {
+    position: absolute;
+    z-index: 99999;
+    color: white;
+    font-size: 3em;
+}
+
+/* ------------------------------------------------------------------------- */
+/* PACE LOADER */
+/* ------------------------------------------------------------------------- */
+
+
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+.pace .pace-progress {
+    background: #FF4F4F;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+}
+
+
+/* ------------------------------------------------------------------------- */
+/* CSS ADRI */
+/* ------------------------------------------------------------------------- */
+
+
+.items{
+    position: absolute;
+    border: 0px;
+    width: 20px;
+    height: 4px;
+    border-radius: 20%;
+    background-color: #37FDFC;
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.bidule{
+    position: absolute;
+    border: 0px;
+    width: 12px;
+    height: 12px;
+    background-color: #37FDFC;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dropper {
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.dropper h1{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dropper.over {
+    /*    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;*/
+    border: white 5px dashed !important;
+}
+
+.draggable {
+    cursor: move;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+}
+
+.draggable.moving {
+    opacity: 0.25;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+}
+.launchpad  {
+    padding: 8px 0 0 10px;
+    font-size: 40px;
+}
+
