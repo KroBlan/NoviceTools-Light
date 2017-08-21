@@ -1,0 +1,69 @@
+.items{
+    position: absolute;
+    border: 0px;
+    width: 20px;
+    height: 4px;
+    background-color: #006666;
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.bidule{
+    position: absolute;
+    border: 0px;
+    width: 12px;
+    height: 12px;
+    background-color: #006666;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dropper {
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.dropper h1{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.drop_hover {
+    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
+  border: 2px dashed #37FDFC;
+}
+
+.draggable {
+    cursor: move;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+}
+
+.draggable.moving {
+  opacity: 0.25;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+}
+

@@ -1,0 +1,139 @@
+/* ------------------------------------------------------------------------- */
+/* BEATZ N BITZ */
+/* PROJET REALISE POUR BGE */
+/* V1 2017 $/
+/* ------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------------- */
+/* FONTS FAMILY */
+/* ------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v14/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+}
+/* ------------------------------------------------------------------------- */
+/* BASES */
+/* ------------------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Abel', verdena, sans-serif;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* 10px */
+}
+
+body, main {
+    margin: 0;
+    font-size: 1.6rem;
+    background-color: #eee;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+
+
+/* ------------------------------------------------------------------------- */
+/* LE HEADER */
+/* ------------------------------------------------------------------------- */
+
+header {
+    width: 100%;
+    min-height: 10vh;
+
+}
+
+header img {
+    width: 55px;
+    height: 55px;
+    margin: 20px;
+}
+
+#logo {
+    display: flex;
+    align-content: center;
+}
+
+#cercle_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
+    /*    border: 2px red solid;*/
+}
+
+#cercle {
+    width: 545px;
+    height: 545px;
+    background-color: #1b212c;
+    border-radius: 100%;
+
+}
+
+#cercle_background {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 535px;
+    height: 535px;
+    background-color: #eee;
+    border-radius: 100%;
+    z-index: 5;
+}
+
+#cercle_logo img {
+    width: 400px;
+    margin: 20px;
+}
+
+footer {
+    min-height: 30vh;
+    width: 100%;
+
+}
+
+#launchpad {
+    margin: 0 auto;
+    width: 50%;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.launchpad {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    border-radius: 25px;
+    border: #1B212C 1px solid;
+    color: #FF4F4F;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.launchpad:hover {
+    border: #1B212C 1px solid;
+    background-color: #16125A;
+    color: white;
+    transition: 0.4s;
+}
+
+#launchpad h1 {
+    margin: 0 auto;
+    padding: 10px;
+}
