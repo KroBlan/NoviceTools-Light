@@ -1,0 +1,149 @@
+/* ------------------------------------------------------------------------- */
+/* BEATZ N BITZ */
+/* PROJET REALISE POUR BGE */
+/* V1 2017 */
+/* ------------------------------------------------------------------------- */
+
+/*
+-- COULEURS --
+BLEU DARK: #16125a
+BLEU NEON: #37FDFC
+ROUGE: #FF4F4F
+GRIS CLAIR: #EEE
+NOIR: #1b212c
+
+*/
+
+/* ========================================================================= */
+/* LES FORMS */
+/* ========================================================================= */
+
+
+/* ------------------------------------------------------------------------- */
+/* connexionForm */
+/* ------------------------------------------------------------------------- */
+
+form {
+    padding: 5px;
+}
+
+.profil_submit {
+    margin: 25px;
+}
+#connexionForm input[type="text"]{
+    display: block;
+    color: #37FDFC;
+    font-size: 2em;
+    width: 100%;
+    background-color: #16125A;
+    border: 1px #16125A solid;
+    border-bottom: 1px #FF4F4F solid;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+#connexionForm input[type="text"]:focus{
+    outline: none;
+}
+
+#connexionForm input[type="email"]{
+    display: block;
+    color: #37FDFC;
+    font-size: 2em;
+    width: 100%;
+    background-color: #16125A;
+    border: 1px #16125A solid;
+    border-bottom: 1px #FF4F4F solid;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+#connexionForm input[type="email"]:focus{
+    outline: none;
+}
+
+
+#connexionForm input[type="password"]{
+    display: block;
+    color: #37FDFC;
+    font-size: 2em;
+    width: 100%;
+    background-color: #16125A;
+    border: 1px #16125A solid;
+    border-bottom: 1px #FF4F4F solid;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+#connexionForm input[type="password"]:focus{
+    outline: none;
+}
+
+#connexionForm input[type="button"]{
+    margin: 10px;
+    padding: 5px;
+    border: 1px #FF4F4F solid;
+    border-radius: 25px;
+    background-color: #16125A;
+    color: #FF4F4F;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: linear 0.2s;
+}
+
+#connexionForm input[type="button"]:hover{
+    border: 1px #37FDFC solid;
+    background-color: #16125A;
+    color: #37FDFC;
+    transition: linear 0.2s;
+
+}
+
+#connexionForm input[type="button"]:active{
+    color: white;
+    transition: linear 0.2s;
+
+}
+
+/* ------------------------------------------------------------------------- */
+/* searchForm */
+/* ------------------------------------------------------------------------- */
+
+
+#searchForm input[type="text"]{
+    background-color: #16125A;
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
+    background-position: -100% 5px;
+    border: 1px #191567 solid;
+    padding: 2px;
+    color: #37FDFC;
+    transition: 0.4s;
+    font-size: 1em;
+}
+
+#searchForm input[type="text"]:focus{
+    background-color: #16125A;
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
+    background-position: 100% 5px;
+    outline: none;
+}
+
+/* > placeholder < */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-family: 'Abel';
+    color: #eee;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    font-family: 'Abel';
+    color: #eee;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    font-family: 'Abel';
+    color: #eee;
+}
+:-moz-placeholder { /* Firefox 18- */
+    font-family: 'Abel';
+    color: #eee;
+}
