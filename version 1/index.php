@@ -1,48 +1,51 @@
+<?php
+// on ouvre le session
+session_start();
+?>
 <!DOCTYPE html>
-<html>
+<html lang="fr" class="no-js">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!-- LES CSS -->
-        <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
-        <link href="css/main.css" rel="stylesheet" type="text/css"/>
-        <link href="css/forms.css" rel="stylesheet" type="text/css"/>
-
-        <!-- LES SCRIPTS -->
-        <script src="js/js.js" type="text/javascript"></script>
-
-        <!-- LE FAVICON -->
-        <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-        <link rel="manifest" href="img/favicon/manifest.json">
-        <meta name="theme-color" content="#ffffff">
+        <?php include 'inc/config.php' ?>
 
         <!-- TITRE PAGE -->
         <title>BeatzNbitz : Make your beats easy</title>
+
+        <!-- SCRIPTS SEQUENCEUR -->
+        <script src="js/sequenceur.js" type="text/javascript"></script>
+        <script src="js/class_button.js" type="text/javascript"></script>
+        <script src="js/dnd.js" type="text/javascript"></script>
+
+        <!-- CSS PRELOAD -->
+        <link href="css/preload/effect.css" rel="stylesheet" type="text/css"/>
+
+        <!-- SCRIPTS PRELOAD -->
+        <script src="js/preload/modernizr.custom.js" type="text/javascript"></script>
+
     </head>
-    <body class='fade-in'>
+
+    <body>
+
+        <!-- PRELOAD PAGE -->
+        <div id="ip-container" class="ip-container">
+            <header class="ip-header">     
+                <div class="logo-bnb">
+                    <img src="img/logo.svg" alt="Logo BeatzNbitz" title='BeatzNbitz' width="300px" height="300px"/>
+
+                </div> 
+                <div class="ip-loader">
+                    <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+                    <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                    <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                    </svg>
+
+                </div>
+            </header>
+
+
+        </div>
 
         <main>
-
-            <!-- LE HEADER -->
-            <header>
-
-                <!-- LE LOGO -->
-                <div id="logo">
-                    <a href="index.html"><img src="img/logo_beatznbitz_red.png" alt="Logo BeatzNbitz" title='BeatzNbitz'/></a>
-                </div> 
-
-                <!-- LE MENU -->
-                <nav>
-                    <ul>
-                        <li><a href="#">mon profil</a></li>
-                        <li><a href="#">mes sons</a></li>
-                        <li><a href="connexion.html">se connecter</a></li>
-                    </ul>
-                </nav> 
-            </header>
+            <?php include 'inc/header.php'; ?>
 
             <!-- NO JS MESSAGE -->
             <noscript>
@@ -82,7 +85,7 @@
                                         <li><a href="#">categorie 5</a></li>
                                         <li><a href="#">categorie 6</a></li>
                                         <li>
-                                            <form id="searchForm" name="identification" action="login.php" method="post">
+                                            <form id="searchForm" name="identification" action="#" method="post">
                                                 <div class="profil_input">
                                                     <input type="text"
                                                            name="search"
@@ -98,90 +101,7 @@
                                 </div>
 
                                 <div id="librarySamples_1" class="librarySamples">
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
-                                    <div class="samples">
-                                        <h6>sample</h6>
-
-                                    </div>
+                                                                    
                                 </div>
                             </div>
                         </div>
@@ -213,15 +133,28 @@
                         </div>
                     </div>
 
+                    <!-- FULL SCREEN -->
+                    <div id="fullscreen">
+                        <div id='fullscreenOpen_id' class="fullscreenOpen">
+                            <img src="img/full.png" alt="Partager" title="Partager"/>
+                        </div>
+                        <div id="fullscreen_content" class="fullscreenOpened fade-in">
+                            <div id='fullscreenClose_id' class="fullscreenClose">
+                                <img src="img/close.png" alt="Fermer" title="Fermer"/>
+
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- LE CERCLE MUSICAL -->
                     <div id="cercle_container">
                         <div id="cercle">
-                            <img src="img/cercle.svg" alt="Cercle"/>
+                            <img id="img_cercle" src="img/cercle.svg" alt="Cercle"/>
                         </div>
                         <div id="cercle_background">
                             <div id="cercle_logo">
-                                <img src="img/logo_beatznbitz_textonly_red.png" alt="Logo BeatzNbitz" title='BeatzNbitz'/>
-                                <h3>126</h3>
+                                <img src="img/logo_beatznbitz_textonly_red.png" alt="Logo BeatzNbitz" title='BeatzNbitz'/>         
+                                <h3 id="bpm">126</h3>
                             </div> 
                         </div>
 
@@ -261,26 +194,7 @@
                     <!-- LE LAUNCHPAD -->
                     <div id="launchpad">
 
-                        <div id = "w" class="launchpad">
-                            <h1>w</h1>
 
-                        </div>
-                        <div id = "x" class="launchpad">
-                            <h1>x</h1>
-
-                        </div>
-                        <div id = "c" class="launchpad">
-                            <h1>c</h1>
-
-                        </div>
-                        <div id = "v" class="launchpad">
-                            <h1>v</h1>
-
-                        </div>
-                        <div id = "b" class="launchpad">
-                            <h1>b</h1>
-
-                        </div>
 
                     </div>
 
@@ -300,33 +214,33 @@
                             <img src="img/clear.svg" alt="Remettre à zéro" title="Remettre à zéro"/>
 
                         </div>
-                        <!--                        <div class="tools">
-                                                    <img src="img/play-arrow.svg" alt=""/>
                         
-                                                </div>
-                                                <div class="tools">
-                                                    <img src="img/play-arrow.svg" alt=""/>
-                        
-                                                </div>-->
                         <div class="tools">
                             <img src="img/record.svg" alt="Enregistrer" title="Enregistrer"/>
 
                         </div>
+
+
+                        <?php if (isset($_SESSION ['nom'])) { ?>
+                            <div class="tools">
+                                <img src="img/download.svg" alt="Télécharger" title="Télécharger"/>
+
+                            </div>
+                        <?php } ?>
                     </div>
 
                 </div>
             </div>
 
-
             <!-- LE FOOTER -->
-            <footer>
-                <ul>
-                    <li><a href="#">à propos</a></li>
-                    <li><a href="#">mentions légales</a></li>
-                    <li>copyright</li>
-                </ul>
-            </footer>
+            <?php include 'inc/footer.php'; ?>
 
         </main>
+
+
+
+        <script src="js/preload/classie.js"></script>
+        <script src="js/preload/pathLoader.js"></script>
+        <script src="js/preload/main.js"></script>
     </body>
 </html>

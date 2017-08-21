@@ -21,17 +21,11 @@ function check_fx() {
     if (user_iden) {
         if (user_iden !== "") {
             if (REG_IDEN.test(user_iden)) {
-//                if (user_iden === "Zouheir") {
                     if (user_pass) {
                         if (user_pass !== "") {
                             if (REG_PASS.test(user_pass)) {
-//                                if (user_pass === "123456") {
-                                    document.forms['identification'].submit();
-//                                } else {
-//                                    document.querySelector('.alert_1').style.display = 'block';
-//                                    alert_1.innerHTML = "";
-//                                    alert_1.innerHTML = "Le mot de passe est invalide.";
-//                                }
+                                    document.forms['connexionForm'].submit();
+                                    
                             } else {
                                 document.querySelector('.alert').style.display = 'block';
                                 alert_1.innerHTML = "";
@@ -47,11 +41,6 @@ function check_fx() {
                         alert_1.innerHTML = "";
                         alert_1.innerHTML = "Merci de renseigner votre mot de passe";
                     }
-//                } else {
-//                    document.querySelector('.alert_1').style.display = 'block';
-//                    alert_1.innerHTML = "";
-//                    alert_1.innerHTML = "L'identifiant n'existe pas.";
-//                }
             } else {
                 document.querySelector('.alert').style.display = 'block';
                 alert_1.innerHTML = "";

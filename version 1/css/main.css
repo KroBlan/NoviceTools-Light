@@ -8,6 +8,7 @@
 -- COULEURS --
 BLEU DARK: #16125a
 BLEU NEON: #37FDFC
+BLEU PLUS CLAIR: #191567;
 ROUGE ORANGE: #FF4F4F
 GRIS CLAIR: #EEE
 NOIR: #1b212c
@@ -67,7 +68,7 @@ body, main {
 /* LE HEADER */
 /* ------------------------------------------------------------------------- */
 
-header {
+#mainHeader {
     width: 100%;
     min-height: 10vh;
     /*    border: 2px red solid;*/
@@ -75,7 +76,7 @@ header {
 }
 
 /* > les imgs < */
-header img {
+#mainHeader img {
     position: fixed;
     width: 55px;
     height: 55px;
@@ -84,48 +85,116 @@ header img {
 
 #logo {
     position: fixed;
-    z-index: 99999;
+    z-index: 0;
 }
 
-/*---  LE MENU ---*/
-nav {
+/*---  LE MENU PRINCIPAL ---*/
+#menuMain {
     float: right; 
     line-height: 10vh;
     margin-right: 10px;
 }
 
-nav ul {
+#menuMain ul {
     display: inline-block;
 }
 
-nav li {
+#menuMain li {
     display: inline-block;
     margin: 0 10px 0 10px;
+    color: #37FDFC;
 
 }
 
-
-nav a {
+#menuMain a {
     padding: 2px;
     color: #FF4F4F;
     transition: 0.4s;
     font-size: 1em;
 }
 
-nav a:hover {
+#menuMain a:hover {
     color: #37FDFC;
     border-bottom: 1px #37FDFC solid;
     transition: 0.4s;
 
 }
 
-nav a:active {
+#menuMain a:active {
     color: #eee;
 
 }
 
-nav li:last-child {
+#menuMain li:last-child {
     /* BORDER POUR "SE CONNECTER" */
+}
+
+/*---  LE MENU MOBILE---*/
+
+#mobileHeader{
+    position: fixed;
+    display: none;
+    width: 100%;
+    min-height: 10vh;
+}
+
+.mobilemenuOpen {
+    float: right;
+    line-height: 10vh;
+    margin-right: 20px;
+    font-size: 2em;
+    color: #FF4F4F;
+
+}
+.mobilemenu {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #191567;
+    z-index: 9;
+
+}
+
+.mobilemenuClose {
+    float: right;
+    line-height: 10vh;
+    margin-right: 20px;
+    font-size: 2em;
+    color: #FF4F4F;
+
+}
+
+.mobilemenu ul {
+
+
+}
+
+
+.mobilemenu li {
+    padding: 5px;
+    margin: 0 10px 0 10px;
+    border-bottom: 1px red solid;
+
+}
+
+
+.mobilemenu a {
+    padding: 2px;
+    color: #FF4F4F;
+    transition: 0.4s;
+    font-size: 2em;
+}
+
+.mobilemenu a:hover {
+    color: #37FDFC;
+    border-bottom: 1px #37FDFC solid;
+    transition: 0.4s;
+
+}
+
+.mobilemenu a:active {
+    color: #eee;
+
 }
 
 h3 {
@@ -138,7 +207,7 @@ h3 {
 
 .middlepage {
     width: 100%;
-    min-height: 88vh;
+    min-height: 85vh;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -355,13 +424,50 @@ h6 {
     z-index: 1;
 }
 
+/*---  FULL SCREEN*/
+#fullscreen {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+}
+.fullscreenOpened {
+    display: none;
+    position: absolute;
+    width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
+    background-color: #191567;
+    z-index: 999;
+
+}
+
+.fullscreenClose {
+    position: relative;
+    display: none;
+    cursor: pointer;
+    float: right;
+    z-index: 109;
+
+}
+
+.fullscreenOpen {
+    -webkit-align-content: flex-end; 
+    align-content: flex-end; 
+    cursor: pointer;
+    float: right;
+    color: #eee;
+    margin: 450px 0 0 0;
+    z-index: 1;
+}
+
 
 /*---  LE CERCLE MUSICAL --*/
 .container {
     display: flex;
     width: 100%;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 55vh;
+    max-height: 55vh;
     background-color: #16125a;
 
 }
@@ -371,7 +477,7 @@ h6 {
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 60vh;
+    min-height: 55vh;
     /*    max-height: 60vh;*/
     /*    border: 2px red solid;*/
 }
@@ -379,7 +485,7 @@ h6 {
 
 #cercle {
     position: absolute;
-    width: 25%; /* 500px*/
+    width: 20%; /* 500px*/
     /*height: 500px*/
     /*    background-color: white;;*/
     /*border-radius: 100%;*/
@@ -418,6 +524,9 @@ h6 {
     margin: 20px 20px 0px 0px;
 }
 
+#fullscreen img {
+    margin: 20px 20px 0px 0px;
+}
 /*#options img:hover {
     background-color: #37FDFC;
     border-radius: 10px;
@@ -494,21 +603,35 @@ h6 {
 }
 
 .launchpad {
-    min-width: 100px;
-    width: 100px;
-    height: 100px;
+    min-width: 80px;
+    width: 80px;
+    height: 80px;
     margin: 20px;
-    border-radius: 25px;
-    color: #FF4F4F;
+    /*    width:6vw; 
+        height:6vw;
+        margin:1vw 10px;*/
+    border-radius: 10%;
+    color: #37FDFC;
     cursor: pointer;
     transition: 0.4s;
     background-color: #16125a;
-    border: 5px #eee solid;
+    border: 2px #37FDFC solid;
+
+    -moz-box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.1);
+    -webkit-box-shadow: inset 1px 100px 10px 0px rgba(55, 253, 252, 0.1);
+    -o-box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.1);
+    box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.1);
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=rgba(55, 253, 252, 0.1), Direction=134, Strength=1000);
+
 }
 
 .launchpad:hover {
-    background-color: #16125a;
-    border: 5px #FF4F4F solid;
+    -moz-box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.9);
+    -webkit-box-shadow: inset 1px 100px 10px 0px rgba(55, 253, 252, 0.9);
+    -o-box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.9);
+    box-shadow: inset 1px 1px 100px 0px rgba(55, 253, 252, 0.9);
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=rgba(55, 253, 252, 0.9), Direction=134, Strength=1000);
+
     transition: 0.4s;
 }
 
@@ -540,13 +663,17 @@ h6 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 60px;
-    width: 60px;
-    height: 60px;
-    margin: 10px;
+    /*    min-width: 60px;
+        width: 60px;
+        height: 60px;
+        margin: 10px;*/
+    margin: 20px;
+    width:4vw; 
+    height:4vw;
+    margin:1vw 10px;
     background-color: #16125a;
-    border: 1px #eee solid;
-    border-radius: 10px;
+    border: 1px #FF4F4F solid;
+    border-radius: 10%;
     color: #FF4F4F;
     cursor: pointer;
     transition: 0.4s;
@@ -554,7 +681,11 @@ h6 {
 
 .tools:hover {
     background-color: #16125a;
-    border: 1px #FF4F4F solid;
+    -moz-box-shadow: inset 1px 1px 100px 0px rgba(255, 79, 79, 0.3);
+    -webkit-box-shadow: inset 1px 100px 10px 0px rgba(255, 79, 79, 0.3);
+    -o-box-shadow: inset 1px 1px 100px 0px rgba(255, 79, 79, 0.3);
+    box-shadow: inset 1px 1px 100px 0px rgba(255, 79, 79, 0.3);
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=rgba(255, 79, 79, 0.3), Direction=134, Strength=1000);
     transition: 0.4s;
 }
 
@@ -619,7 +750,7 @@ h6 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 88vh;
+    min-height: 85vh;
 
 }
 
@@ -629,7 +760,7 @@ h6 {
     align-items: center;
     flex-direction: column;
     width: 50%;
-    min-height: 50vh;
+    min-height: 70vh;
     border: 1px #FF4F4F solid;
     text-align: center;
     border-radius: 10px;
@@ -662,10 +793,11 @@ h6 {
 /* ------------------------------------------------------------------------- */
 
 footer {
-    min-height: 2vh;
+    min-height: 5vh;
     width: 100%;
     color: #eee;
     z-index: 999999;
+    line-height: 5vh;
 
 
 }
@@ -747,6 +879,9 @@ footer a:active {
 
 }
 
+.display_none {
+    display: none;
+}
 
 /* ------------------------------------------------------------------------- */
 /* NO JS */
@@ -770,3 +905,111 @@ footer a:active {
     color: white;
     font-size: 3em;
 }
+
+/* ------------------------------------------------------------------------- */
+/* PACE LOADER */
+/* ------------------------------------------------------------------------- */
+
+
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+.pace .pace-progress {
+    background: #FF4F4F;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+}
+
+
+/* ------------------------------------------------------------------------- */
+/* CSS ADRI */
+/* ------------------------------------------------------------------------- */
+
+
+.items{
+    position: absolute;
+    border: 0px;
+    width: 20px;
+    height: 4px;
+    background-color: #006666;
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.bidule{
+    position: absolute;
+    border: 0px;
+    width: 12px;
+    height: 12px;
+    background-color: #006666;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dropper {
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.dropper h1{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dropper.over {
+    /*    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;*/
+    border: white 5px dashed !important;
+}
+
+.draggable {
+    cursor: move;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+}
+
+.draggable.moving {
+    opacity: 0.25;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+}
+.launchpad  {
+    padding: 8px 0 0 10px;
+    font-size: 40px;
+}
+

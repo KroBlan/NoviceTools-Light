@@ -24,7 +24,7 @@ NOIR: #1b212c
 /* ------------------------------------------------------------------------- */
 
 form {
-    padding: 20px;
+    padding: 5px;
 }
 
 .profil_submit {
@@ -105,13 +105,42 @@ form {
 
 }
 
+#connexionForm input[type="submit"]{
+    margin: 10px;
+    padding: 5px;
+    border: 1px #FF4F4F solid;
+    border-radius: 25px;
+    background-color: #16125A;
+    color: #FF4F4F;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: linear 0.2s;
+}
+
+#connexionForm input[type="submit"]:hover{
+    border: 1px #37FDFC solid;
+    background-color: #16125A;
+    color: #37FDFC;
+    transition: linear 0.2s;
+
+}
+
+#connexionForm input[type="submit"]:active{
+    color: white;
+    transition: linear 0.2s;
+
+}
+
 /* ------------------------------------------------------------------------- */
 /* searchForm */
 /* ------------------------------------------------------------------------- */
 
 
 #searchForm input[type="text"]{
-    background-color: #191567;
+    background-color: #16125A;
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
+    background-position: -100% 5px;
     border: 1px #191567 solid;
     padding: 2px;
     color: #37FDFC;
