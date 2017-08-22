@@ -43,7 +43,7 @@ session_start();
                                     <input type="text"
                                            name="pseudo"
                                            id="pseudo"
-                                           value="demo"
+                                           value="ultime"
                                            placeholder="pseudo"
                                            maxlength="24"
                                            required>
@@ -54,7 +54,7 @@ session_start();
                                     <input type="password"
                                            name="password"
                                            id="password"
-                                           value="demo"
+                                           value="Ultime81"
                                            placeholder="mot de passe"
                                            maxlength="12"
                                            required>
@@ -63,7 +63,7 @@ session_start();
                                 </div>
                                 <div class="profil_submit">
                                     <!--                                REMETTRE LE INPUT EN BUTTON-->
-                                    <input type="submit" value="CONNEXION">
+                                    <input type="button" value="CONNEXION">
                                 </div>
                             </div>
                             <a href="registration.php">Pas encore inscrit ?</a>

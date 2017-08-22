@@ -83,7 +83,7 @@ session_start();
                                             <li><a href="#">categorie 4</a></li>
                                             <li><a href="#">categorie 5</a></li>
                                             <li><a href="#">categorie 6</a></li>
-                                            <li>
+<!--                                            <li>
                                                 <form id="searchForm" name="identification" action="#" method="post">
                                                     <div class="profil_input">
                                                         <input type="text"
@@ -95,7 +95,7 @@ session_start();
                                                                required>
                                                     </div>
                                                 </form>
-                                            </li>
+                                            </li>-->
                                         </ul>
                                     </div>
 

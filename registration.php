@@ -96,7 +96,7 @@ session_start();
                                 </div>
                                 <div class="profil_submit">
                                     <!--REMETTRE LE INPUT EN BUTTON-->
-                                    <input type="submit" value="S'INSCRIRE">
+                                    <input type="button" value="S'INSCRIRE">
                                 </div>
                             </div>
                             <a href="login.php">Déjà inscrit ?</a>

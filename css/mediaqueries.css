@@ -12,6 +12,10 @@
     #launchpad {
         width: 100%;
     }
+
+    #settings {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 760px) {
@@ -25,13 +29,17 @@
         display:block;
     }
 
-/*    #library {
+    #fullscreen {
         display: none;
+    }
 
-    }
-    #options {
-        display:none;
-    }
+    /*    #library {
+            display: none;
+    
+        }*/
+    /*            #options {
+                    display:none;
+                }*/
 
     #share {
         display: none;
@@ -39,11 +47,19 @@
 
     #fullscreen {
         display: none;
-    }*/
+    }
 
-/*    footer {
-        display: none;
-    }*/
+    .libraryOpen {
+        margin-top: 50px;
+    }
+
+    .optionsOpen {
+        margin-top: 100px;
+    }
+
+        footer {
+            display: none;
+        }
 
     #cercle_logo img {
         width: 30%; 
@@ -61,13 +77,17 @@
         width: 90%;
     }
 
+    .main_container {
+        min-height: 95vh;
+    }
+
     .launchpad {
         min-width: 50px;
         width: 50px;
         height: 50px;
         margin: 5px;
     }
-    
+
     #launchpad {
         width: 100%;
     }
@@ -85,7 +105,7 @@
     #launchpad {
         min-height: 31vh;
     }
-    
+
     .container_connexion {
         margin-top: 10vh;
     }

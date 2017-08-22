@@ -8,20 +8,27 @@
 
     <!-- LE CONTENU MOBILE MENU -->
     <nav class="mobilemenu">
-        <div id='mobilemenuClose' class='mobilemenuClose'>
-            <img src="img/close.png" alt="X"/>
-        </div>
+        <!--        <div id='mobilemenuClose' class='mobilemenuClose'>
+                    <img src="img/close.png" alt="X"/>
+                </div>-->
 
         <ul>
-            
+
             <?php
             if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
-                echo '<li><img src="img/profile.svg" width="32" height="32" /> ' . $_SESSION ['pseudo'] . '</li>';
+                echo "<li id='mobilemenuClose' class='mobilemenuClose'><img src='img/close.png' alt='X'/></li>";
+                if (isset($_SESSION['admin'])) {
+                    echo '<li>admin : ' . $_SESSION ['admin'] . '</li>';
+                    echo '<li><a href="godboard.php">dashboard</a></li>';
+                } else {
+                    echo '<li>' . $_SESSION ['pseudo'] . '</li>';
+                }
                 echo '<li><a href="index.php">Accueil</a></li>';
                 echo '<li><a href="myprofil.php">mon profil</a></li>';
                 echo '<li><a href="mysounds.php">mes sons</a></li>';
                 echo '<li><a href="logout.php">se déconnecter</a></li>';
             } else {
+                echo "<li id='mobilemenuClose' class='mobilemenuClose'><img src='img/close.png' alt='X'/></li>";
                 echo '<li><a href="index.php">Accueil</a></li>';
                 echo "<li><a href='registration.php'>créer un compte</a></li>";
                 echo '<li><a href="login.php">se connecter</a></li>';
@@ -33,6 +40,7 @@
             <li><a href="mentionslegales.php">mentions légales</a></li>
             <li>2017 copyright</li>
         </ul>
+
 
     </nav>
 </header>
@@ -50,7 +58,13 @@
         <ul>
             <?php
             if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
-                echo '<li>' . $_SESSION ['pseudo'] . '</li>';
+                if (isset($_SESSION['admin'])) {
+                    echo '<li>admin : ' . $_SESSION ['admin'] . '</li>';
+                    echo '<li><a href="godboard.php">dashboard</a></li>';
+                } else {
+                    echo '<li>' . $_SESSION ['pseudo'] . '</li>';
+                }
+
                 echo '<li><a href="myprofil.php">mon profil</a></li>';
                 echo '<li><a href="mysounds.php">mes sons</a></li>';
                 echo '<li><a href="logout.php">se déconnecter</a></li>';

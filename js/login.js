@@ -12,11 +12,11 @@ function check_fx() {
 
     var user_idenDiv = document.getElementById('pseudo');
     var user_passDiv = document.getElementById('password');
-    var user_email = document.getElementById('email');
+//    var user_email = document.getElementById('email');
 
     const REG_IDEN = /.{4,24}/;
     const REG_PASS = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/;
-    const REG_MAIL = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+//    const REG_MAIL = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 
     var alert = document.getElementById("alert");
 

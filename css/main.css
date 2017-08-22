@@ -58,6 +58,11 @@ body, main {
     background-color: #16125a;
     color: #eee;
 
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
 }
 
 ::-webkit-scrollbar { 
@@ -162,9 +167,9 @@ body, main {
 }
 
 .mobilemenuClose {
-    float: right;
+/*    float: right;
     line-height: 10vh;
-    margin-right: 20px;
+    margin-right: 20px;*/
     font-size: 2em;
     color: #FF4F4F;
     cursor: pointer;
@@ -172,24 +177,30 @@ body, main {
 }
 
 .mobilemenu ul {
+    margin: 0 20px 0 20px;
+    list-style-image: url('bluff.gif');
 
 }
 
+.mobilemenu li:first-child{
+    text-align: right;
+    line-height: 10vh;
+    margin-right: 20px;
+}
 
 .mobilemenu li {
-    padding: 5px;
-    margin: 0 10px 0 10px;
-    border-left: 5px #FF4F4F solid;
-    font-size: 3em;
+    border-bottom: 1px rgba(55, 253, 252, 0.1) solid;
+/*    padding: 5px;
+*/  
+    font-size: 2.5em;
     color: #37FDFC;
     position:relative;
-    width:90%;
+    width:100%;
     transition: 0.4s;
 
 }
 
 .mobilemenu li:hover {
-    border-left: 5px #37FDFC solid;
     transition: 0.4s;
 }
 
@@ -207,7 +218,6 @@ body, main {
 
 .mobilemenu a:hover {
     color: #37FDFC;
-    border-bottom: 1px #37FDFC solid;
     transition: 0.4s;
 
 }
@@ -278,7 +288,6 @@ h3 {
 .libraryOpen {
     cursor: pointer;
     float: right;
-
 }
 .libraryMain {
     /*    position: absolute;*/
@@ -310,7 +319,7 @@ h3 {
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
-    width: 850px; /* A REVOIR */
+    /*    width: 850px;  A REVOIR */
     margin: 0 auto;
     text-align: center;
 
