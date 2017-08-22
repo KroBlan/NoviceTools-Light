@@ -11,7 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.js" type="text/javascript"></script> <!-- Jquery -->
 
 <script src="js/js.js" type="text/javascript"></script>
-<!--<script src="js/login.js" type="text/javascript"></script>-->
+<script src="js/login.js" type="text/javascript"></script>
 <script src="js/pace.js" type="text/javascript"></script>
 
 

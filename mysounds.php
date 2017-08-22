@@ -17,11 +17,36 @@ session_start();
             <?php include 'inc/header.php' ?>
 
             <?php
-            if (isset($_SESSION ['nom'])) {
+            if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                 ?>
 
                 <!-- LE MAIN CONTAINER -->
                 <div class="main_container">
+
+
+                    <div class="main_content">
+                        <h2> MES SONS </h2>
+                        <div class="mysounds">
+                            <h3>nom du son</h3>
+                            <div class="mysounds_options">
+                                test
+                            </div>
+                        </div>
+                        <div class="mysounds">
+
+                        </div>
+                        <div class="mysounds">
+
+                        </div>
+                        <div class="mysounds">
+
+                        </div>
+                        <div class="mysounds">
+
+                        </div>
+                        
+
+                    </div>
 
 
 

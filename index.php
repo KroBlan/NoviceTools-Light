@@ -26,23 +26,21 @@ session_start();
     <body>
 
         <!-- PRELOAD PAGE -->
-        <div id="ip-container" class="ip-container">
-            <header class="ip-header">     
-                <div class="logo-bnb">
-                    <img src="img/logo.svg" alt="Logo BeatzNbitz" title='BeatzNbitz' width="300px" height="300px"/>
-
-                </div> 
-                <div class="ip-loader">
-                    <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
-                    <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
-                    <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
-                    </svg>
-
-                </div>
-            </header>
-
-
-        </div>
+<!--                <div id="ip-container" class="ip-container">
+                    <header class="ip-header">     
+                        <div class="logo-bnb">
+                            <img src="img/logo.svg" alt="Logo BeatzNbitz" title='BeatzNbitz' width="300px" height="300px"/>
+        
+                        </div> 
+                        <div class="ip-loader">
+                            <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+                            <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                            <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                            </svg>
+        
+                        </div>
+                    </header>
+                </div>-->
 
         <main>
             <?php include 'inc/header.php'; ?>
@@ -61,90 +59,95 @@ session_start();
                 <!-- LE CONTENU -->
                 <div id="container" class="container">
 
-                    <!-- LA LIBRARIE -->
-                    <div id="library">
-                        <div id='libraryOpen_id' class="libraryOpen">
-                            <img src="img/soundlibrary.png" alt="Librairie de samples" title='Librairie de samples'/>
-                        </div>
-                        <div id="library_content" class="libraryOpened fade-in">
-
-                            <div id='libraryClose_id' class="libraryClose">
-                                <img src="img/close.png" alt="Fermer la librairie" title='Fermer la librairie'/>
-
+<!--                    <div id="icon_right">-->
+                        <!-- LA LIBRARIE -->
+                        <div id="library">
+                            <div id='libraryOpen_id' class="libraryOpen">
+                                <img src="img/soundlibrary.png" alt="Librairie de samples" title='Librairie de samples'/>
                             </div>
-                            <div class="libraryMain">
-                                <div class="libraryContent">
-                                    <h2>LIBRAIRIE DE SAMPLE</h2>
+                            <div id="library_content" class="libraryOpened fade-in">
+
+                                <div id='libraryClose_id' class="libraryClose">
+                                    <img src="img/close.png" alt="Fermer la librairie" title='Fermer la librairie'/>
+
                                 </div>
-                                <div class="libraryCategories">
-                                    <ul>
-                                        <li><a href="#">categorie 1</a></li>
-                                        <li><a href="#">categorie 2</a></li>
-                                        <li><a href="#">categorie 3</a></li>
-                                        <li><a href="#">categorie 4</a></li>
-                                        <li><a href="#">categorie 5</a></li>
-                                        <li><a href="#">categorie 6</a></li>
-                                        <li>
-                                            <form id="searchForm" name="identification" action="#" method="post">
-                                                <div class="profil_input">
-                                                    <input type="text"
-                                                           name="search"
-                                                           id="search"
-                                                           value=""
-                                                           placeholder="rechercher"
-                                                           maxlength="24"
-                                                           required>
-                                                </div>
-                                            </form>
-                                        </li>
-                                    </ul>
+                                <div class="libraryMain">
+                                    <div class="libraryContent">
+                                        <h2>LIBRAIRIE DE SAMPLE</h2>
+                                    </div>
+                                    <div class="libraryCategories">
+                                        <ul>
+                                            <li><a href="#">categorie 1</a></li>
+                                            <li><a href="#">categorie 2</a></li>
+                                            <li><a href="#">categorie 3</a></li>
+                                            <li><a href="#">categorie 4</a></li>
+                                            <li><a href="#">categorie 5</a></li>
+                                            <li><a href="#">categorie 6</a></li>
+                                            <li>
+                                                <form id="searchForm" name="identification" action="#" method="post">
+                                                    <div class="profil_input">
+                                                        <input type="text"
+                                                               name="search"
+                                                               id="search"
+                                                               value=""
+                                                               placeholder="rechercher"
+                                                               maxlength="24"
+                                                               required>
+                                                    </div>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div id="librarySamples_1" class="librarySamples">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LES OPTIONS -->
+                        <div id="options">
+                            <div id='optionsOpen_id' class="optionsOpen">
+                                <img src="img/settings.png" alt="Les options" title="Les options"/>
+                            </div>
+                            <div id="options_content" class="optionsOpened fade-in">
+                                <div id='optionsClose_id' class="optionsClose">
+                                    <img src="img/close.png" alt="Fermer les options" title="Fermer les options"/>
                                 </div>
 
-                                <div id="librarySamples_1" class="librarySamples">
-                                                                    
+                                <div class="libraryMain">
+                                    <div class="libraryContent">
+                                        <h2>LES OPTIONS</h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- LES OPTIONS -->
-                    <div id="options">
-                        <div id='optionsOpen_id' class="optionsOpen">
-                            <img src="img/settings.png" alt="Les options" title="Les options"/>
-                        </div>
-                        <div id="options_content" class="optionsOpened fade-in">
-                            <div id='optionsClose_id' class="optionsClose">
-                                <img src="img/close.png" alt="Fermer les options" title="Fermer les options"/>
-
+                        <!-- SHARE -->
+                        <div id="share">
+                            <div id='shareOpen_id' class="shareOpen">
+                                <img src="img/share.png" alt="Partager" title="Partager"/>
+                            </div>
+                            <div id="share_content" class="shareOpened fade-in">
+                                <div id='shareClose_id' class="shareClose">
+                                    <img src="img/close.png" alt="Fermer" title="Fermer"/>
+                                    <div class="libraryMain">
+                                        <div class="libraryContent">
+                                            <h2>PARTAGEZ VOTRE CREATION</h2>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- SHARE -->
-                    <div id="share">
-                        <div id='shareOpen_id' class="shareOpen">
-                            <img src="img/share.png" alt="Partager" title="Partager"/>
-                        </div>
-                        <div id="share_content" class="shareOpened fade-in">
-                            <div id='shareClose_id' class="shareClose">
-                                <img src="img/close.png" alt="Fermer" title="Fermer"/>
-
+                        <!-- FULL SCREEN -->
+                        <div id="fullscreen">
+                            <div id='fullscreenOpen_id' class="fullscreenOpen">
+                                <img src="img/fullscreen.png" alt="Mode plein écran" title="Mode plein écran"/>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- FULL SCREEN -->
-                    <div id="fullscreen">
-                        <div id='fullscreenOpen_id' class="fullscreenOpen">
-                            <img src="img/full.png" alt="Partager" title="Partager"/>
-                        </div>
-                        <div id="fullscreen_content" class="fullscreenOpened fade-in">
-                            <div id='fullscreenClose_id' class="fullscreenClose">
-                                <img src="img/close.png" alt="Fermer" title="Fermer"/>
-
-                            </div>
-                        </div>
-                    </div>
+<!--                    </div>-->
 
                     <!-- LE CERCLE MUSICAL -->
                     <div id="cercle_container">
@@ -214,14 +217,14 @@ session_start();
                             <img src="img/clear.svg" alt="Remettre à zéro" title="Remettre à zéro"/>
 
                         </div>
-                        
-                        <div class="tools">
-                            <img src="img/record.svg" alt="Enregistrer" title="Enregistrer"/>
 
-                        </div>
+                        <?php if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) { ?>
 
+                            <div class="tools">
+                                <img src="img/record.svg" alt="Enregistrer" title="Enregistrer"/>
 
-                        <?php if (isset($_SESSION ['nom'])) { ?>
+                            </div>
+
                             <div class="tools">
                                 <img src="img/download.svg" alt="Télécharger" title="Télécharger"/>
 
@@ -231,13 +234,10 @@ session_start();
 
                 </div>
             </div>
-
             <!-- LE FOOTER -->
             <?php include 'inc/footer.php'; ?>
 
         </main>
-
-
 
         <script src="js/preload/classie.js"></script>
         <script src="js/preload/pathLoader.js"></script>

@@ -20,6 +20,39 @@ session_start();
 
             <!-- MIDDLE PAGE -->
             <div class="middlepage">
+                                <!-- LE MAIN CONTAINER -->
+                <div class="main_container">
+
+
+                    <div class="main_content">
+                        <div class="mysounds">
+                            <h3>Zouheir</h3>
+                        </div>
+                        <div class="mysounds">
+                            <h3>Rado</h3>
+
+                        </div>
+                        <div class="mysounds">
+                            <h3>Adriano</h3>
+
+                        </div>
+                        <div class="mysounds">
+                            <h3>François</h3>
+
+                        </div>
+                        <div class="mysounds">
+                            <h3>Malik</h3>
+
+                        </div>
+                        
+                        
+
+                    </div>
+
+
+
+
+                </div>
 
             </div>
 

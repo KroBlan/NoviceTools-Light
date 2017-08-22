@@ -3,49 +3,53 @@ window.addEventListener('load', function () {
 
     let libraryOpen = document.getElementById('libraryOpen_id');
     libraryOpen.addEventListener("click", libraryOpen_fx);
-    
+
     let libraryClose = document.getElementById('libraryClose_id');
     libraryClose.addEventListener("click", libraryClose_fx);
-    
+
     // -----
-    
+
     let controlsOpen = document.getElementById('openControls_id');
     controlsOpen.addEventListener("click", controlsOpen_fx);
-    
+
     let controlsClose = document.getElementById('closeControls_id');
     controlsClose.addEventListener("click", controlsClose_fx);
-    
+
     // -----
-    
+
     let shareOpen = document.getElementById('shareOpen_id');
     shareOpen.addEventListener("click", shareOpen_fx);
-    
+
     let shareClose = document.getElementById('shareClose_id');
     shareClose.addEventListener("click", shareClose_fx);
-    
+
     // -----
-    
+
     let optionsOpen = document.getElementById('optionsOpen_id');
     optionsOpen.addEventListener("click", optionsOpen_fx);
-    
+
     let optionsClose = document.getElementById('optionsClose_id');
     optionsClose.addEventListener("click", optionsClose_fx);
-    
+
+    let fullscreen = document.getElementById('fullscreenOpen_id');
+    fullscreen.addEventListener("click", fullscreen_fx);
+
+
     // -----
-    
+
     let menuOpen = document.getElementById('mobilemenu_id');
     menuOpen.addEventListener("click", mobilemenuOpen_fx);
-    
+
     let menuClose = document.getElementById('mobilemenuClose');
     menuClose.addEventListener("click", mobilemenuClose_fx);
-    
+
+
 //    False = fermé / True =  ouvert
     let library = false;
     let options = false;
     let share = false;
     let controls = true;
     let menumobile = true;
-
 
 
 });
@@ -96,6 +100,7 @@ function shareOpen_fx() {
     document.querySelector('.shareClose').style.display = 'block';
     document.querySelector('.libraryOpen').style.display = 'none';
     document.querySelector('.optionsClose').style.display = 'none';
+    document.querySelector('.optionsOpen').style.display = 'none';
     share = true;
 }
 
@@ -105,6 +110,7 @@ function shareClose_fx() {
     document.querySelector('.shareOpen').style.display = 'block';
     document.querySelector('.shareOpened').style.display = 'none';
     document.querySelector('.libraryOpen').style.display = 'block';
+    document.querySelector('.optionsOpen').style.display = 'block';
     share = false;
 }
 
@@ -137,6 +143,7 @@ function mobilemenuOpen_fx() {
     document.querySelector('.mobilemenuClose').style.display = 'block';
     document.getElementById('mobilemenu_id').className += ' display_none';
     document.getElementById('mobilemenuClose').className = 'mobilemenuClose';
+    document.querySelector('.middlepage').style.display = 'none';
     menumobile = false;
 }
 
@@ -147,6 +154,37 @@ function mobilemenuClose_fx() {
     document.querySelector('.mobilemenuClose').style.display = 'none';
     document.getElementById('mobilemenu_id').className = 'mobilemenuOpen';
     document.getElementById('mobilemenuClose').className += ' display_none';
+    document.querySelector('.middlepage').style.display = 'block';
     menumobile = true;
 }
 
+
+// MODE PLEIN ECRAN ON/OFF 
+function fullscreen_fx() {
+    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) {
+            document.documentElement.msRequestFullscreen();
+        } else if (document.documentElement.mozRequestFullScreen) {
+            document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullscreen) {
+            document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+        // Taille de l'écran
+        taiEX = window.screen.width;
+        taiEY = window.screen.height;
+    } else {
+        if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+        } else if (document.msCancelFullScreen) {
+            document.msCancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+        }
+        taiEX = window.screen.width;
+        taiEY = window.screen.height;
+    }
+}
