@@ -4,11 +4,16 @@
 
 //A FAIRE:
 //catégories pour fichiers audios
-//Drag & Drop
-//fait-detecter et ajuster affichage au changement de taille de la fenetre
-//stocker des pourcentages au lieu de durées pour pouvoir accélérer et ralentir avec "duration"
 
+//en stick to beat -> jouer le son quand on presse la touche
+//stocker un truc dans une variable skip_sound
+//si le son n'existe pas déjà
 
+//afficher les sons enregistrés sur le cercle
+
+//optimiser la boule qui tourne autour du cercle
+
+//placer curseur pour modifier le bpm
 
 var timerID = null;//pour le timer...
 var key_time = []; //tab à 2 dim non indéx Temps/touche
@@ -19,23 +24,34 @@ var soundFiles = [
     new Audio("library/sounds/sound4.mp3"),
     new Audio("library/sounds/sound5.mp3")];// Liste des objets audios (référence des fichiers son)
 
+var audio_categories = [
+    "Clap",
+    "Kick"
+];
+
 //associassion Touche/Son
-var key_sounds = {// tab à 1 dimension indéxée Touche/Son
+// tab à 1 dimension indéxée Touche/Son
+var key_sounds = {
     "W": soundFiles[0],
     "X": soundFiles[1],
     "C": soundFiles[2],
     "V": soundFiles[3],
     "B": soundFiles[4]};
 var duration = 600; // durée du cycle
-var beats = 8; //nombre de segments sur la timeline
-var beat_duration = duration / beats;//durée d'un beat
-var beat = 0; //beat actuel
-var stick_to_beat = true; //le mode quantification est il actif ?
+
+var mesures = 8; //nombre de segments sur la timeline
+var mesure_duration = duration / mesures;//durée d'un mesure
+var mesure = 0; //mesure actuel
+
+var beat_duration = duration / 4;
+var beat = 1;
+
+var stick_to_mesure = true; //le mode quantification est il actif ?
 //timer
 var timerStarted = false; //le timer est il actif ?
 var time = 1; //position du curseur sur la timeline
 var time_pause;//position du curseur au moment de la pause
-var pause = true;//pour mettre en pause
+var pause = false;//pour mettre en pause
 
 var metronome_sound = soundFiles[1]; //le son du metronome
 var metronome_active = false;//false pour éteindre le métronome
@@ -50,7 +66,12 @@ var loaded = 0;//pour verifier que tous les fichiers audio à utiliser son en ca
 
 var browser_window_width;
 
-var bidule;//truc qui tourne autour du cercle
+var bidule;
+var bidule_draw = false;//true si bidule à été créé
+var show_bidule = true;//affiche le bidule
+
+var pointeur;//truc qui tourne autour du cercle
+
 
 // s'excecute après le chargement de la page comme le init
 //INIT -------------------------------
@@ -60,7 +81,7 @@ window.addEventListener('load', function () {
     //on prend la largeur de l'écran
     browser_window_width = window.innerWidth;
     //on dessine les trucs autour du cercle
-    draw_items(beats);
+    draw_items(mesures);
 
     //on met l'audio en cache
     //--------------------
@@ -88,9 +109,11 @@ window.addEventListener('load', function () {
     }
     //On affiche les bpm
     display_bpm();
-    
+
     //test: dessine cercle
-//    draw_cercle(beats);
+//    draw_cercle(mesures);
+    pointeur = new Pointeur('pointeur', 'cercle');
+    pointeur.draw(time);
 });
 
 //FIN de l'init -----------------
@@ -98,9 +121,11 @@ window.addEventListener('load', function () {
 //On détecte le changement de taille de la fenêtre du navigateur
 window.onresize = function (event) {
     browser_window_width = window.innerWidth;
-    draw_items(beats);
-        //bouge le bidule qui tourne autour du cercle
-        draw_bidule(time);
+    draw_items(mesures);
+//    draw_bidule(time);
+    //bouge le bidule qui tourne autour du cercle
+    pointeur.refresh_position();
+//    pointeur.draw(time);
 };
 
 
@@ -153,7 +178,7 @@ function stopTimer(e) {
 // reprise du timer
 window.addEventListener('keydown', function (e) {
 
-    if (e.keyCode === 32 && pause === true) {
+    if (e.keyCode === 32 && pause === false) {
         time = time_pause;
         startTimer();
     }
@@ -188,10 +213,13 @@ function timer_sequencer() {
     if (time < duration) {
         time++;
         //bouge le bidule qui tourne autour du cercle
-        draw_bidule(time);
+//        draw_bidule(time);
+        pointeur.move(time);
 
+        //si on passe une mesure sur la timeline
         if (time > beat * beat_duration)
         {
+            //si le metronome est actif on joue un son
             if (metronome_active)
             {
                 playSound(metronome_sound);
@@ -211,31 +239,35 @@ function timer_sequencer() {
 
 //on regarde si il y a un son enregistré à cet instant (on arrondie)
     for (var i = 0; i < key_time.length; i++) {
-        if (Math.round(key_time[i][0]) === time) {
+        if (Math.round(percentage_to_time(key_time[i][0])) === time) {
             //on joue le son
             playSound(key_sounds[key_time[i][1]]);
             //on change son apparence
-            activate_bouton(get_button_from_letter(key_time[i][1], boutons_creation));
+//            activate_bouton(get_button_from_letter(key_time[i][1], boutons_creation));
+            get_button_from_letter(key_time[i][1], boutons_creation).activate(100);
         }
     }
+
+
     //on réduit les décomptes des boutons ayant changé d'apparence
     //et on les remet à leur apparence d'origine si le décompte est à 0
-    for (var i = 0; i < boutons_creation.length; i++) {
-
-        if (boutons_creation[i].bouton_on) {
-
-            boutons_creation[i].time_bouton_on--; //la durée de changement de style se réduit jusqu'à zero dès que le bouton est allumé
-//            console.log(boutons_creation[i].time_bouton_on);
-            if (boutons_creation[i].time_bouton_on <= 0) {
-                // lorsque la durée de changement atteint zero...
-                boutons_creation[i].bouton_on = false;
-                // on remet le style d'origine
-                boutons_creation[i].out.style.transition = "0.4s";
-                boutons_creation[i].out.style.backgroundColor = "";
-            }
-        }
-    }
+//    for (var i = 0; i < boutons_creation.length; i++) {
+//
+//        if (boutons_creation[i].bouton_on) {
+//
+//            boutons_creation[i].time_bouton_on--; //la durée de changement de style se réduit jusqu'à zero dès que le bouton est allumé
+////            console.log(boutons_creation[i].time_bouton_on);
+//            if (boutons_creation[i].time_bouton_on <= 0) {
+//                // lorsque la durée de changement atteint zero...
+//                boutons_creation[i].bouton_on = false;
+//                // on remet le style d'origine
+//                boutons_creation[i].out.style.transition = "0.4s";
+//                boutons_creation[i].out.style.backgroundColor = "";
+//            }
+//        }
+//    }
 }
+//FIN TIMER
 
 //------------------------------------
 // Ecouteur pour clavier (touche pressée)
@@ -276,42 +308,44 @@ window.addEventListener('keydown', function (e) {
 //        playSound(key_sounds["B"]);
     }
 
-    //Change le nombre de beats par boucle
-    if (e.keyCode === 49 && beats > 1) {
-        beats /= 2;
-        beat_duration = duration / beats;
-        draw_items(beats);
-        beat = Math.floor(time / beat_duration) + 1;
-        console.log(beats);
-        console.log("beat actuel: " + beat);
+    //Change le nombre de mesures par boucle
+    if (e.keyCode === 49 && mesures > 1) {
+        mesures /= 2;
+        mesure_duration = duration / mesures;
+        draw_items(mesures);
+        mesure = Math.floor(time / mesure_duration) + 1;
+        console.log(mesures);
+        console.log("mesure actuelle: " + mesure);
         display_bpm();
     }
-//augmente les beats
-    if (e.keyCode === 50 && beats / duration < 0.2) {
-        //on multiplie le nombre de beats par 2
-        beats *= 2;
-        //on recalcule la durée d'un beat
-        beat_duration = duration / beats;
-        //on recalcule à quel beat on est actuellement
-        beat = Math.floor(time / beat_duration) + 1;
+//augmente les mesures
+    if (e.keyCode === 50 && mesures / duration < 0.2) {
+        //on multiplie le nombre de mesures par 2
+        mesures *= 2;
+        //on recalcule la durée d'un mesure
+        mesure_duration = duration / mesures;
+        //on recalcule à quelle mesure on est actuellement
+        mesure = Math.floor(time / mesure_duration) + 1;
         //on redessine les indicateurs
-        draw_items(beats);
-        console.log(beats);
-        console.log("beat actuel: " + beat);
+        draw_items(mesures);
+        console.log(mesures);
+        console.log("mesure actuel: " + mesure);
         display_bpm();
     }
 
 //change la longueur de la séquence
     if (e.keyCode === 51 && duration > 10) {
         duration -= 10;
-        beat_duration = duration / beats;
+        mesure_duration = duration / mesures;
+        beat_duration = duration / 4;
         console.log(duration);
         display_bpm();
     }
 
     if (e.keyCode === 52 && duration < 900) {
         duration += 10;
-        beat_duration = duration / beats;
+        mesure_duration = duration / mesures;
+        beat_duration = duration / 4;
         console.log(duration);
         display_bpm();
     }
@@ -329,9 +363,9 @@ window.addEventListener('keydown', function (e) {
     if (e.keyCode === 55) {
         metronome_active = !metronome_active;
     }
-//active desactive stick to beat touche 8
+//active desactive stick to mesure touche 8
     if (e.keyCode === 56) {
-        stick_to_beat = !stick_to_beat;
+        stick_to_mesure = !stick_to_mesure;
     }
 });
 
@@ -353,17 +387,17 @@ function playSound(sound) {
 //Fonction pour ajouter du son
 // on place la référence du son dans le tableau keytime
 function get_time(key, t) {
-    //si on colle au beat
-    if (stick_to_beat === true) {
+    //si on colle au mesure
+    if (stick_to_mesure === true) {
 
-        var c = Math.floor(t / beat_duration);
-        if (t % beat_duration < beat_duration / 2)
+        var c = Math.floor(t / mesure_duration);
+        if (t % mesure_duration < mesure_duration / 2)
         {
-            t = c * beat_duration + 1;
+            t = c * mesure_duration + 1;
 //            console.log("c: "+c+" t: "+t);
             playSound(key_sounds[key]);//!! placé ici pour éviter répétition
         } else
-            t = (c * beat_duration) + beat_duration + 1;
+            t = (c * mesure_duration) + mesure_duration + 1;
 //            console.log("c: "+c+" t: "+t);
         if (t > duration)
         {
@@ -377,14 +411,16 @@ function get_time(key, t) {
     //on vérifie que ce son n'a pas déjà été placé à cet endroit
     for (var i = 0, len = key_time.length; i < len; i++)
     {
-        if (key_time[i][0] === t && key_time[i][1] === key)
+        if (percentage_to_time(key_time[i][0]) === t && key_time[i][1] === key)
         {
             return;
         }
     }
-    key_time.push([t, key]);
+    key_time.push([time_to_percentage(t), key]);
+//    key_time.push([t, key]);
     //on change l'apparence du bouton
-    activate_bouton(get_button_from_letter(key, boutons_creation));
+//    activate_bouton(get_button_from_letter(key, boutons_creation));
+    get_button_from_letter(key, boutons_creation).activate(100);
 //    console.log("+ " + t);
 }
 
@@ -405,70 +441,69 @@ function get_bpm(b, t)
 function display_bpm()
 {
     let parent = document.getElementById("bpm");
-    parent.innerHTML = get_bpm(beats, duration) + ' bpm';
+    parent.innerHTML = get_bpm(4, duration) + ' bpm';
     console.log("affiche bpm");
 }
 
 //dessine les trucs autour du cercle
 function draw_items(items)
 {
-//    var rayon = browser_window_width / 8 - 4;
-//    //! soustraire la moitier de la largeur du div pour les x et de la hauteur pour les y
-//    var centreX = browser_window_width / 8 - 10;
-//    var centreY = browser_window_width / 8 - 2;
-//    centreX -= 25;
-//    centreY -= 25;
-
     var img = document.getElementById('img_cercle');
     //on se base sur la taille de l'image du cercle
     var centreX = img.clientWidth / 2 - 10;
     var centreY = img.clientHeight / 2 - 2;
     var rayon = img.clientWidth / 2;
 
-    //centre de la div id='cercle'
-//    var centrex = $('cercle').width()/2;
-//    var centrey = $('cercle').height()/2;
-
-    destroy('items', 'cercle');
+    destroy('beats', 'cercle');
+    destroy('mesures', 'cercle');
     for (var i = 0; i < items; i++)
     {
         //On calcule l'angle en degrés
         var angle = 360 / (items / i) - 90;
 //        console.log("angle deg: " + angle);
-        //On calcule l'angle en radiants
-        angle = angle * Math.PI / 180.0;
+
+        //si c'est un beat:
+        if (angle % 90 === 0)
+        {
+            //On calcule l'angle en radiants
+            angle = angle * Math.PI / 180.0;
 //        console.log(angle);
-        draw('items', angle, rayon, centreX, centreY, 'cercle');
+            draw('beats', angle, rayon, centreX, centreY, 'cercle');
+        }
+        //si c'est une mesure:
+        else
+        {
+            //On calcule l'angle en radiants
+            angle = angle * Math.PI / 180.0;
+//        console.log(angle);
+            draw('mesures', angle, rayon, centreX + 5, centreY + 2, 'cercle');
+        }
     }
 }
 
+
+
 //dessine le truc qui tourne autour du cercle (à voir...)
-function draw_bidule(t)
-{
-//    var rayon = browser_window_width / 8 + 10;
-//    //! soustraire la moitier de la largeur du div pour les x et de la hauteur pour les y
-//    var centreX = browser_window_width / 8 - 5;
-//    var centreY = browser_window_width / 8 - 5;
-//    centreX -= 25;
-//    centreY -= 25;
+//function draw_bidule(t)
+//{
+//    var img = document.getElementById('img_cercle');
+//    //on se base sur la taille de l'image du cercle
+//    var centreX = img.clientWidth / 2 - 5;
+//    var centreY = img.clientHeight / 2 - 5;
+//    var rayon = img.clientHeight / 2 + 10;
+//
+//    //On calcule l'angle en degrés
+//    var angle = 360 / (duration / t) - 90;
+////    console.log("angle deg: " + angle);
+//    //On calcule l'angle en radiants
+//    angle = angle * Math.PI / 180.0;
+////    console.log(angle);
+//
+//    destroy('bidule', 'cercle');
+//    draw('bidule', angle, rayon, centreX, centreY, 'cercle');
+//    bidule_draw = true;
+//}
 
-
-    var img = document.getElementById('img_cercle');
-    //on se base sur la taille de l'image du cercle
-    var centreX = img.clientWidth / 2 - 5;
-    var centreY = img.clientHeight / 2 - 5;
-    var rayon = img.clientHeight / 2 + 10;
-
-    //On calcule l'angle en degrés
-    var angle = 360 / (duration / t) - 90;
-//    console.log("angle deg: " + angle);
-    //On calcule l'angle en radiants
-    angle = angle * Math.PI / 180.0;
-//    console.log(angle);
-
-    destroy('bidule', 'cercle');
-    draw('bidule', angle, rayon, centreX, centreY, 'cercle');
-}
 
 //dessine un cercle déformable en svg
 //function draw_cercle(items)
@@ -584,6 +619,18 @@ function draw(class_name, angle, rayon, centreX, centreY, parent_id)
     out.style.msTransform = 'rotate(' + angle + 'rad)';
     out.style.oTransform = 'rotate(' + angle + 'rad)';
     out.style.transform = 'rotate(' + angle + 'rad)';
-    
+
     return out;
+}
+
+//        renvoie un pourcentage par rapport à la durée de la boucle
+function time_to_percentage(t)
+{
+    return t / duration * 100;
+}
+
+//        renvoie un repère de temps par rapport au pourcentage
+function percentage_to_time(p)
+{
+    return duration / 100 * p;
 }

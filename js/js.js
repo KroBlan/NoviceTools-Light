@@ -150,8 +150,3 @@ function mobilemenuClose_fx() {
     menumobile = true;
 }
 
-//function mediaq_fx() {
-//    if ($(window).width() > 760) {
-//        
-//    }
-//}
