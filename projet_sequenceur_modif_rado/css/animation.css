@@ -1,0 +1,42 @@
+/* ------------------------------------------------------------------------- */
+/* BEATZ N BITZ */
+/* PROJET REALISE POUR BGE */
+/* V1 2017 */
+/* ------------------------------------------------------------------------- */
+
+/*
+-- COULEURS --
+BLEU DARK: #16125a
+BLEU NEON: #37FDFC
+BLEU PLUS CLAIR: #191567;
+ROUGE ORANGE: #FF4F4F
+GRIS CLAIR: #EEE
+NOIR: #1b212c
+
+*/
+
+/* ------------------------------------------------------------------------- */
+
+#zone1 {
+  z-index: 3000;
+  position: absolute;
+  /*width: 20%;*/
+  color:black;
+  /*height: 20vh;*/
+  margin: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50%;
+}
+
+#zone1 img {
+  width: 50%;
+  animation : rotation 10s linear infinite;
+}
+
+@keyframes rotation {
+  0% {transform: rotate(0deg)}
+  50% {transform: rotate(180deg)}
+  100%{transform: rotate(360deg)}
+}
