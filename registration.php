@@ -59,7 +59,7 @@ session_start();
                                     doit contenir des majuscules, des miniscules et des chiffres
                                 </div>
 
-<!--                                <div class="profil_input">
+                                <div class="profil_input">
                                     <input type="password"
                                            name="password_confirmation"
                                            id="password_confirmation"
@@ -68,7 +68,7 @@ session_start();
                                            maxlength="12"
                                            required>
                                     confirmez votre mot de passe
-                                </div>-->
+                                </div>
 
                                 <div class="profil_input">
                                     <input type="email"
@@ -81,7 +81,7 @@ session_start();
                                 </div>
 
 
-<!--                                <div class="profil_input">
+                                <div class="profil_input">
                                     <input type="email"
                                            name="email_confirmation"
                                            id="email_confirmation"
@@ -90,7 +90,7 @@ session_start();
                                            maxlength="64"
                                            required>
                                     confirmez votre email
-                                </div>-->
+                                </div>
 
                                 <div id="alert" class="alert">
                                 </div>

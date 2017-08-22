@@ -50,6 +50,8 @@ session_start();
                                 <div class="profil_submit">
                                     <input type="button" value="REINITIALISER">
                                 </div>
+                                Un email vous sera envoyer pour réinitialiser votre mot de passe
+                               
                             </div>
                             <a href="registration.php">Pas encore inscrit ?</a>
                             -
