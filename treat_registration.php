@@ -17,7 +17,7 @@ $ident = session_id();
         <?php
         include 'inc/header.php';
 
-        $user_iden = $_REQUEST['identifiant'];
+        $user_iden = $_REQUEST['pseudo'];
         $user_pass = sha1($_REQUEST['password']);
         $user_email = $_REQUEST['email'];
 
@@ -42,10 +42,8 @@ $ident = session_id();
 
 //        //Préparaiton requête pour récuperer les users
 //        $requete = "SELECT `id`, `pseudo`, `pass`, `email` FROM `users`";
-
-
         // Vérification des identifiants
-        $req = $db_connexion->prepare('SELECT id FROM users WHERE pseudo = :pseudo AND email = :email');
+        $req = $db_connexion->prepare('SELECT user_id FROM users WHERE user_pseudo = :pseudo AND user_email = :email');
         $req->execute(array(
             'pseudo' => $user_iden,
             'email' => $user_email));
@@ -62,13 +60,15 @@ $ident = session_id();
             $user_iden = strtolower($user_iden);
             $user_email = strtolower($user_email);
 
-            $req = $db_connexion->prepare('INSERT INTO users(pseudo, pass, email, date_registration) VALUES(:pseudo, :pass, :email, CURDATE())');
+            $req = $db_connexion->prepare('INSERT INTO users(user_pseudo, user_pass, user_email, user_date, user_token, user_statut, user_rights) VALUES(:pseudo, :pass, :email, CURDATE(), :token, :statut, :rights)');
             $req->execute(array(
                 'pseudo' => $user_iden,
                 'pass' => $user_pass,
-                'email' => $user_email));
-
-
+                'email' => $user_email,
+                'token' => '',
+                'statut' => '1',
+                'rights' => '1',));
+            
             $_SESSION ['id'] = $ident;
             $_SESSION ['pseudo'] = $user_iden;
 

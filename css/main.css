@@ -310,7 +310,7 @@ h3 {
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
-    width: 850px; /* A REVOIR */
+/*    width: 850px;  A REVOIR */
     margin: 0 auto;
     text-align: center;
 
@@ -422,6 +422,7 @@ h6 {
     color: #eee;
     margin: 50px 0 0 0;
 
+
 }
 
 /*---  SHARE*/
@@ -494,6 +495,7 @@ h6 {
     float: right;
     color: #eee;
     margin: 150px 0 0 0;
+
 
 }
 
@@ -738,7 +740,7 @@ h6 {
     flex-direction: row;
     position: absolute;
     width: 25%;
-    min-height: 28vh;
+    min-height: 5vh;
     padding: 20px;
 
 }
@@ -1090,4 +1092,9 @@ footer a:active {
 
 .mysounds_options {
 
+}
+
+.profil_input {
+    color: rgba(55, 253, 252, 0.2);
+    text-align: center;
 }

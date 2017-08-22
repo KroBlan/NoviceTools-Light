@@ -22,6 +22,7 @@
                 echo '<li><a href="mysounds.php">mes sons</a></li>';
                 echo '<li><a href="logout.php">se déconnecter</a></li>';
             } else {
+                echo '<li><a href="index.php">Accueil</a></li>';
                 echo "<li><a href='registration.php'>créer un compte</a></li>";
                 echo '<li><a href="login.php">se connecter</a></li>';
             }

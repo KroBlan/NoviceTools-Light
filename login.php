@@ -41,8 +41,8 @@ session_start();
                             <div id="connexionContent">
                                 <div class="profil_input">
                                     <input type="text"
-                                           name="identifiant"
-                                           id="identifiant"
+                                           name="pseudo"
+                                           id="pseudo"
                                            value="demo"
                                            placeholder="pseudo"
                                            maxlength="24"

@@ -17,7 +17,7 @@ $ident = session_id();
         <?php
         include 'inc/header.php';
 
-        $user_iden = $_REQUEST['identifiant'];
+        $user_iden = $_REQUEST['pseudo'];
         $user_pass = sha1($_REQUEST['password']);
 
         $user_iden = htmlentities($user_iden);
@@ -41,7 +41,7 @@ $ident = session_id();
         }
 
         // Vérification des identifiants
-        $req = $db_connexion->prepare('SELECT id FROM users WHERE pseudo = :pseudo AND pass = :pass');
+        $req = $db_connexion->prepare('SELECT user_id, user_rights FROM users WHERE user_pseudo = :pseudo AND user_pass = :pass');
         $req->execute(array(
             'pseudo' => $user_iden,
             'pass' => $user_pass));
@@ -56,6 +56,11 @@ $ident = session_id();
         } else {
             $_SESSION ['id'] = $ident;
             $_SESSION ['pseudo'] = $user_iden;
+            
+            if($resultat = admin){
+                $_SESSION ['admin'] = $user_iden;
+            }
+
             echo 'Vous êtes connecté !';
             header('location: ./index.php');
             exit;

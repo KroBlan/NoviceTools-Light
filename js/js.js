@@ -1,6 +1,13 @@
 window.addEventListener('load', function () {
 // EVENTS DETECTION DE CLICK
+    let menuOpen = document.getElementById('mobilemenu_id');
+    menuOpen.addEventListener("click", mobilemenuOpen_fx);
 
+    let menuClose = document.getElementById('mobilemenuClose');
+    menuClose.addEventListener("click", mobilemenuClose_fx);
+      
+    // -----
+    
     let libraryOpen = document.getElementById('libraryOpen_id');
     libraryOpen.addEventListener("click", libraryOpen_fx);
 
@@ -30,6 +37,9 @@ window.addEventListener('load', function () {
 
     let optionsClose = document.getElementById('optionsClose_id');
     optionsClose.addEventListener("click", optionsClose_fx);
+    
+    
+    // -----
 
     let fullscreen = document.getElementById('fullscreenOpen_id');
     fullscreen.addEventListener("click", fullscreen_fx);
@@ -37,11 +47,6 @@ window.addEventListener('load', function () {
 
     // -----
 
-    let menuOpen = document.getElementById('mobilemenu_id');
-    menuOpen.addEventListener("click", mobilemenuOpen_fx);
-
-    let menuClose = document.getElementById('mobilemenuClose');
-    menuClose.addEventListener("click", mobilemenuClose_fx);
 
 
 //    False = fermé / True =  ouvert
@@ -54,6 +59,27 @@ window.addEventListener('load', function () {
 
 });
 
+// OUVRIR LE MENU MOBILE
+function mobilemenuOpen_fx() {
+    document.querySelector('.mobilemenu').style.display = 'block';
+    document.querySelector('.mobilemenuOpen').style.display = 'none';
+    document.querySelector('.mobilemenuClose').style.display = 'block';
+    document.getElementById('mobilemenu_id').className += ' display_none';
+    document.getElementById('mobilemenuClose').className = 'mobilemenuClose';
+    document.querySelector('.middlepage').style.display = 'none';
+    menumobile = false;
+}
+
+// FERMER LE MENU MOBILE
+function mobilemenuClose_fx() {
+    document.querySelector('.mobilemenu').style.display = 'none';
+    document.querySelector('.mobilemenuOpen').style.display = 'block';
+    document.querySelector('.mobilemenuClose').style.display = 'none';
+    document.getElementById('mobilemenu_id').className = 'mobilemenuOpen';
+    document.getElementById('mobilemenuClose').className += ' display_none';
+    document.querySelector('.middlepage').style.display = 'block';
+    menumobile = true;
+}
 
 // OUVRE LA LIBRAIRIE
 function libraryOpen_fx() {
@@ -134,30 +160,6 @@ function controlsClose_fx() {
     document.querySelector('.container').style.maxHeight = '85vh';
     controls = true;
 }
-
-
-// OUVRIR LE MENU MOBILE
-function mobilemenuOpen_fx() {
-    document.querySelector('.mobilemenu').style.display = 'block';
-    document.querySelector('.mobilemenuOpen').style.display = 'none';
-    document.querySelector('.mobilemenuClose').style.display = 'block';
-    document.getElementById('mobilemenu_id').className += ' display_none';
-    document.getElementById('mobilemenuClose').className = 'mobilemenuClose';
-    document.querySelector('.middlepage').style.display = 'none';
-    menumobile = false;
-}
-
-// FERMER LE MENU MOBILE
-function mobilemenuClose_fx() {
-    document.querySelector('.mobilemenu').style.display = 'none';
-    document.querySelector('.mobilemenuOpen').style.display = 'block';
-    document.querySelector('.mobilemenuClose').style.display = 'none';
-    document.getElementById('mobilemenu_id').className = 'mobilemenuOpen';
-    document.getElementById('mobilemenuClose').className += ' display_none';
-    document.querySelector('.middlepage').style.display = 'block';
-    menumobile = true;
-}
-
 
 // MODE PLEIN ECRAN ON/OFF 
 function fullscreen_fx() {

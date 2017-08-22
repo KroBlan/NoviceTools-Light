@@ -8,6 +8,11 @@
 /* ------------------------------------------------------------------------- */
 /* MEDIA QUERIES */
 /* ------------------------------------------------------------------------- */
+@media screen and (max-width: 1000px) {
+    #launchpad {
+        width: 100%;
+    }
+}
 
 @media screen and (max-width: 760px) {
 
@@ -18,6 +23,10 @@
 
     #mobileHeader {
         display:block;
+    }
+    
+    #fullscreen {
+        display: none;
     }
 
 /*    #library {
@@ -36,9 +45,9 @@
         display: none;
     }*/
 
-    footer {
+/*    footer {
         display: none;
-    }
+    }*/
 
     #cercle_logo img {
         width: 30%; 
@@ -61,7 +70,10 @@
         width: 50px;
         height: 50px;
         margin: 5px;
-
+    }
+    
+    #launchpad {
+        width: 100%;
     }
 
     .middlepage {
@@ -76,5 +88,9 @@
 
     #launchpad {
         min-height: 31vh;
+    }
+    
+    .container_connexion {
+        margin-top: 10vh;
     }
 }

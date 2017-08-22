@@ -8,37 +8,25 @@ session_start();
         <?php include 'inc/config.php' ?>
 
         <!-- TITRE PAGE -->
-        <title>Mon profil</title>
+        <title>Erreur 404: page non existante</title>
     </head>
     <body>
 
         <main>
+
             <!-- LE HEADER -->
+
             <?php include 'inc/header.php' ?>
 
-            <?php
-            if (isset($_SESSION ['nom'])) {
-                ?>
 
                 <!-- LE MAIN CONTAINER -->
                 <div class="main_container">
-
-
+                    DÉSOLÉ, LA PAGE N'EXISTE...
 
 
                 </div>
 
-                <?php
-            } else {
 
-                echo '<div class="main_container">';
-                echo '<div class="container_connexion">';
-                echo '<h1>Vous devez être connecté';
-                echo '</div></div>';
-                header('location: ./login.php');
-                exit;
-            }
-            ?>
 
             <!-- LE FOOTER -->
             <?php include 'inc/footer.php' ?>
