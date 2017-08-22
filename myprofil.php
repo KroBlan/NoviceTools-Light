@@ -17,13 +17,15 @@ session_start();
             <?php include 'inc/header.php' ?>
 
             <?php
-            if (isset($_SESSION ['nom'])) {
+            if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                 ?>
 
                 <!-- LE MAIN CONTAINER -->
                 <div class="main_container">
 
-
+                    <div class="main_content">
+                        
+                    </div>
 
 
                 </div>

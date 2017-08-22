@@ -18,7 +18,7 @@ session_start();
             <?php include 'inc/header.php' ?>
 
             <?php
-            if (isset($_SESSION ['nom'])) {
+            if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                 echo '<div class="main_container">';
                 echo '<div class="container_connexion">';
                 echo '<h1>Vous êtes déjà inscrit...';
@@ -35,12 +35,12 @@ session_start();
                     <!-- SE CONNECTER -->
                     <div class="container_connexion">
                         <h1>CRÉER UN COMPTE</h1>
-                        <form id="connexionForm" name="identification" action="#" method="post">
+                        <form id="connexionForm" name="identification" action="treat_registration.php" method="post">
                             <div id="inscriptionContent">
                                 <div class="profil_input">
                                     <input type="text"
-                                           name="identifiant"
-                                           id="identifiant"
+                                           name="pseudo"
+                                           id="pseudo"
                                            value=""
                                            placeholder="votre pseudo"
                                            maxlength="24"
@@ -56,6 +56,18 @@ session_start();
                                            placeholder="mot de passe"
                                            maxlength="12"
                                            required>
+                                    doit contenir des majuscules, des miniscules et des chiffres
+                                </div>
+
+                                <div class="profil_input">
+                                    <input type="password"
+                                           name="password_confirmation"
+                                           id="password_confirmation"
+                                           value=""
+                                           placeholder="confirmez"
+                                           maxlength="12"
+                                           required>
+                                    confirmez votre mot de passe
                                 </div>
 
                                 <div class="profil_input">
@@ -65,17 +77,19 @@ session_start();
                                            value=""
                                            placeholder="email"
                                            maxlength="64"
-                                           required>
+                                           required>                           
                                 </div>
+
 
                                 <div class="profil_input">
                                     <input type="email"
-                                           name="emailConfirm"
-                                           id="emailConfirm"
+                                           name="email_confirmation"
+                                           id="email_confirmation"
                                            value=""
                                            placeholder="confirmez votre email"
                                            maxlength="64"
                                            required>
+                                    confirmez votre email
                                 </div>
 
                                 <div id="alert" class="alert">

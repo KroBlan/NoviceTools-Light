@@ -15,7 +15,6 @@ $ident = session_id();
     </head>
     <body>
         <?php
-
         $user_iden = $_REQUEST['identifiant'];
         $user_pass = $_REQUEST['password'];
 
@@ -24,6 +23,28 @@ $ident = session_id();
 
         const REG_IDEN = '/.{4,24}/';
         const REG_PASS = '/[a-zA-Z0-9]{6,12}/';
+        
+        // CONNEXION A LA DB
+
+        // On définie les constantes pour se connecter à la DB
+        define("DB_DSN", "mysql:host=localhost;dbname=users");
+        define("DB_USER", "root");
+        define("DB_PASS", "root");
+
+
+        try {
+            $db_connexion = new PDO(DB_DSN, DB_USER, DB_PASS); // On créer la var avec la connexion
+            echo 'Connexion avec succès !';
+        } catch (Exception $ex) {
+            echo "Erreur: " . $erreur->getMessage();
+            exit();
+        }
+
+        
+        // Fermeture de la connexion à la DB
+        if ($db_connexion) {
+            $db_connexion = NULL;
+        }
 
         $list_users = ['demo'];
         $list_pass = ['123456'];
@@ -41,7 +62,7 @@ $ident = session_id();
         }
 
         include 'inc/header.php';
-        
+
         echo "<header>";
         if (isset($user_iden)) {
             if ($user_iden != "") {
@@ -52,7 +73,7 @@ $ident = session_id();
                                 if (preg_match(REG_PASS, $user_pass)) {
                                     if ($list_login) {
                                         $_SESSION ['id'] = $ident;
-                                        $_SESSION ['nom'] = $user_iden;
+                                        $_SESSION ['pseudo'] = $user_iden;
                                         echo "<h1>Connecté !</h1>";
                                         header('location: ./index.php');
                                         exit;

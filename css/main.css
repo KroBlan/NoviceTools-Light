@@ -47,7 +47,9 @@ NOIR: #1b212c
 }
 
 html {
+    background-color: #16125a;
     font-size: 62.5%; /* 10px */
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 body, main {
@@ -136,6 +138,7 @@ body, main {
     display: none;
     width: 100%;
     min-height: 10vh;
+    z-index: 99;
 }
 
 .mobilemenuOpen {
@@ -144,6 +147,8 @@ body, main {
     margin-right: 20px;
     font-size: 2em;
     color: #FF4F4F;
+    z-index: 100;
+    cursor: pointer;
 
 }
 .mobilemenu {
@@ -151,7 +156,8 @@ body, main {
     width: 100%;
     min-height: 100vh;
     background-color: #191567;
-    z-index: 9;
+    border-bottom: 1px rgba(255,255,255,0.1) solid;
+    z-index: 100;
 
 }
 
@@ -161,11 +167,11 @@ body, main {
     margin-right: 20px;
     font-size: 2em;
     color: #FF4F4F;
+    cursor: pointer;
 
 }
 
 .mobilemenu ul {
-
 
 }
 
@@ -173,16 +179,30 @@ body, main {
 .mobilemenu li {
     padding: 5px;
     margin: 0 10px 0 10px;
-    border-bottom: 1px red solid;
+    border-left: 5px #FF4F4F solid;
+    font-size: 3em;
+    color: #37FDFC;
+    position:relative;
+    width:90%;
+    transition: 0.4s;
 
 }
 
+.mobilemenu li:hover {
+    border-left: 5px #37FDFC solid;
+    transition: 0.4s;
+}
 
 .mobilemenu a {
     padding: 2px;
     color: #FF4F4F;
     transition: 0.4s;
-    font-size: 2em;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    transition: 0.4s;
 }
 
 .mobilemenu a:hover {
@@ -208,26 +228,38 @@ h3 {
 .middlepage {
     width: 100%;
     min-height: 85vh;
+    z-index: 1
 }
 
 /* ------------------------------------------------------------------------- */
 /* LE CONTENU */
 /* ------------------------------------------------------------------------- */
 
+#icon_right {
+    position: absolute;
+    float: right;
+    width: 10%;
+    min-height: 55vh;
+    max-height: 55vh;
+    display: flex;
+    align-items: center;
+    border: 2px red solid;
+
+}
 
 /*---  LA LIBRARIE---*/
 #library {
     position: absolute;
     width: 100%;
-    z-index: 99;
+    z-index: 10;
 
 }
 .libraryOpened {
     display: none;
     position: absolute;
     width: 100%;
-    min-height: 55vh;
-    max-height: 55vh;
+    min-height: 60vh;
+    max-height: 60vh;
     background-color: #191567;
     /*    border: 5px white solid;*/
     z-index: 99;
@@ -239,28 +271,30 @@ h3 {
     display: none;
     cursor: pointer;
     float: right;
-    z-index: 999;
+    z-index: 99;
 
 }
 
 .libraryOpen {
     cursor: pointer;
     float: right;
-    z-index: 100;
+
 }
 .libraryMain {
-    position: absolute;
+    /*    position: absolute;*/
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     padding: 20px;
     width: 100%;
     min-height: 60vh;
+    z-index:999;
 
 
 }
 .libraryContent {
     margin: 0 auto;
+    z-index:999;
 }
 
 .libraryCategories {
@@ -361,15 +395,15 @@ h6 {
 #options {
     position: absolute;
     width: 100%;
-    z-index: 2;
+    z-index: 9;
 
 }
 .optionsOpened {
     display: none;
     position: absolute;
     width: 100%;
-    min-height: 55vh;
-    max-height: 55vh;
+    min-height: 60vh;
+    max-height: 60vh;
     background-color: #191567;
 
 }
@@ -379,6 +413,7 @@ h6 {
     display: none;
     cursor: pointer;
     float: right;
+    z-index: 99;
 }
 
 .optionsOpen {
@@ -386,24 +421,25 @@ h6 {
     float: right;
     color: #eee;
     margin: 50px 0 0 0;
-    z-index: -1;
+
+
 }
 
 /*---  SHARE*/
 #share {
     position: absolute;
     width: 100%;
-    z-index: 1;
+    z-index: 8;
 
 }
 .shareOpened {
     display: none;
     position: absolute;
     width: 100%;
-    min-height: 55vh;
-    max-height: 55vh;
+    min-height: 60vh;
+    max-height: 60vh;
     background-color: #191567;
-    z-index: 999;
+
 
 }
 
@@ -412,7 +448,8 @@ h6 {
     display: none;
     cursor: pointer;
     float: right;
-    z-index: 109;
+    z-index: 99;
+
 
 }
 
@@ -421,14 +458,14 @@ h6 {
     float: right;
     color: #eee;
     margin: 100px 0 0 0;
-    z-index: 1;
+
 }
 
 /*---  FULL SCREEN*/
 #fullscreen {
     position: absolute;
     width: 100%;
-    z-index: 1;
+    z-index: 7;
 
 }
 .fullscreenOpened {
@@ -438,7 +475,7 @@ h6 {
     min-height: 100%;
     max-height: 100vh;
     background-color: #191567;
-    z-index: 999;
+    z-index: 4;
 
 }
 
@@ -447,7 +484,7 @@ h6 {
     display: none;
     cursor: pointer;
     float: right;
-    z-index: 109;
+    z-index: 99;
 
 }
 
@@ -457,8 +494,9 @@ h6 {
     cursor: pointer;
     float: right;
     color: #eee;
-    margin: 450px 0 0 0;
-    z-index: 1;
+    margin: 150px 0 0 0;
+
+
 }
 
 
@@ -466,8 +504,8 @@ h6 {
 .container {
     display: flex;
     width: 100%;
-    min-height: 55vh;
-    max-height: 55vh;
+    min-height: 60vh;
+    max-height: 60vh;
     background-color: #16125a;
 
 }
@@ -478,6 +516,7 @@ h6 {
     justify-content: center;
     width: 100%;
     min-height: 55vh;
+    z-index: 0;
     /*    max-height: 60vh;*/
     /*    border: 2px red solid;*/
 }
@@ -486,6 +525,7 @@ h6 {
 #cercle {
     position: absolute;
     width: 20%; /* 500px*/
+    z-index: 5;
     /*height: 500px*/
     /*    background-color: white;;*/
     /*border-radius: 100%;*/
@@ -586,8 +626,10 @@ h6 {
 
 #user_controls {
     display: block;
-    min-height: 28vh;
+    min-height: 25vh;
+    max-height: 25vh;
     width: 100%;
+    z-index: 1;
 
 }
 
@@ -698,7 +740,7 @@ h6 {
     flex-direction: row;
     position: absolute;
     width: 25%;
-    min-height: 28vh;
+    min-height: 5vh;
     padding: 20px;
 
 }
@@ -760,7 +802,7 @@ h6 {
     align-items: center;
     flex-direction: column;
     width: 50%;
-    min-height: 70vh;
+    min-height: 50vh;
     border: 1px #FF4F4F solid;
     text-align: center;
     border-radius: 10px;
@@ -793,21 +835,24 @@ h6 {
 /* ------------------------------------------------------------------------- */
 
 footer {
+    position: absolute;
     min-height: 5vh;
-    width: 100%;
+    max-height: 5vh;
+    width: 90%;
     color: #eee;
-    z-index: 999999;
+    z-index: 10;
     line-height: 5vh;
-
 
 }
 
 footer ul {
     display: inline-block;
+    max-height: 5vh;
 }
 
 footer li {
     display: inline-block;
+    max-height: 5vh;
     margin:  0 0 20px 20px;
     padding: 2px;
     font-size: 0.8em;
@@ -868,7 +913,7 @@ footer a:active {
 
 .alert {
     display: none;
-    z-index: 99;
+    z-index: 10;
     color: #FF4F4F;
     font-size: 1.5em;
     margin: 15px;
@@ -895,13 +940,13 @@ footer a:active {
     align-items: center;
     min-height: 88vh;
     max-height: 88vh;
-    z-index: 99999;
+    z-index: 100;
     background-color: #16125a;
 }
 
 .nojsmessage {
     position: absolute;
-    z-index: 99999;
+    z-index: 100;
     color: white;
     font-size: 3em;
 }
@@ -931,7 +976,7 @@ footer a:active {
     top: 0;
     right: 100%;
     width: 100%;
-    height: 2px;
+    height: 5px;
 }
 
 
@@ -943,16 +988,18 @@ footer a:active {
 .items{
     position: absolute;
     border: 0px;
-    width: 20px;
+    width: 15px;
     height: 5px;
     border-radius: 5px;
-    background-color: rgba(55, 253, 252, 0.2);
+    background-color: rgba(255, 255, 255, 0.3);
+    /*    background-color: rgba(55, 253, 252, 0.2);*/
     transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    z-index: 0;
 }
 
 .bidule{
@@ -960,7 +1007,7 @@ footer a:active {
     border: 0px;
     width: 12px;
     height: 12px;
-    background-color: rgba(55, 253, 252, 0.2);;
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
@@ -1014,3 +1061,40 @@ footer a:active {
     font-size: 40px;
 }
 
+/* ------------------------------------------------------------------------- */
+/* MES  SONS */
+/* ------------------------------------------------------------------------- */
+
+.main_content {
+    margin: 0 auto;
+    min-width: 50%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-overflow: auto;
+}
+
+.mysounds {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    padding: 0 0 0 20px;
+    line-height: 10vh;
+    width: 100%;
+    min-height: 10vh;
+    background-color: #191567;
+    border-radius: 50px;
+
+
+}
+
+.mysounds_options {
+
+}
+
+.profil_input {
+    color: rgba(55, 253, 252, 0.2);
+    text-align: center;
+}

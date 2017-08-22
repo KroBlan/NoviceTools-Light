@@ -18,56 +18,68 @@ session_start();
 
             <?php include 'inc/header.php' ?>
 
+            <?php
+            if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+                echo '<div class="main_container">';
+                echo '<div class="container_connexion">';
+                echo '<h1>Vous êtes déjà connecté...';
+                echo '</div></div>';
+                header('location: ./index.php');
+                exit;
+            } else {
+                ?>
 
-            <!-- LE MAIN CONTAINER -->
-            <div class="main_container">
 
-                <!-- SE CONNECTER -->
-                <div class="container_connexion">
-                    <h1>SE CONNECTER</h1>
-                    <form id="connexionForm" name="connexionForm" action="traitement.php" method="post">
-                        <div id="connexionContent">
-                            <div class="profil_input">
-                                <input type="text"
-                                       name="identifiant"
-                                       id="identifiant"
-                                       value="demo"
-                                       placeholder="pseudo"
-                                       maxlength="24"
-                                       required>
+
+                <!-- LE MAIN CONTAINER -->
+                <div class="main_container">
+
+                    <!-- SE CONNECTER -->
+                    <div class="container_connexion">
+                        <h1>SE CONNECTER</h1>
+                        <form id="connexionForm" name="connexionForm" action="treat_login.php" method="post">
+                            <div id="connexionContent">
+                                <div class="profil_input">
+                                    <input type="text"
+                                           name="pseudo"
+                                           id="pseudo"
+                                           value="demo"
+                                           placeholder="pseudo"
+                                           maxlength="24"
+                                           required>
+                                </div>
+
+
+                                <div class="profil_input">
+                                    <input type="password"
+                                           name="password"
+                                           id="password"
+                                           value="demo"
+                                           placeholder="mot de passe"
+                                           maxlength="12"
+                                           required>
+                                </div>
+                                <div id="alert" class="alert">
+                                </div>
+                                <div class="profil_submit">
+                                    <!--                                REMETTRE LE INPUT EN BUTTON-->
+                                    <input type="submit" value="CONNEXION">
+                                </div>
                             </div>
+                            <a href="registration.php">Pas encore inscrit ?</a>
+                            -
+                            <a href="lostpass.php">Mot de pass oublié ?</a>
+                        </form>
 
-
-                            <div class="profil_input">
-                                <input type="password"
-                                       name="password"
-                                       id="password"
-                                       value="123456"
-                                       placeholder="mot de passe"
-                                       maxlength="12"
-                                       required>
-                            </div>
-                            <div id="alert" class="alert">
-                            </div>
-                            <div class="profil_submit">
-<!--                                REMETTRE LE INPUT EN BUTTON-->
-                                <input type="submit" value="CONNEXION">
-                            </div>
-                        </div>
-                        <a href="registration.php">Pas encore inscrit ?</a>
-                        -
-                        <a href="lostpass.php">Mot de pass oublié ?</a>
-                    </form>
-
+                    </div>
                 </div>
-            </div>
 
-
+<?php } ?>
 
 
 
             <!-- LE FOOTER -->
-            <?php include 'inc/footer.php' ?>
+<?php include 'inc/footer.php' ?>
 
 
         </main>
