@@ -1,0 +1,303 @@
+/* ------------------------------------------------------------------------- */
+/* BEATZ N BITZ */
+/* PROJET REALISE POUR BGE */
+/* V1 2017 */
+/* ------------------------------------------------------------------------- */
+
+/*
+-- COULEURS --
+BLEU DARK: #16125a
+BLEU NEON: #37FDFC
+ROUGE: #FF4F4F
+GRIS CLAIR: #EEE
+NOIR: #1b212c
+
+*/
+
+/* ------------------------------------------------------------------------- */
+/* FONTS FAMILY */
+/* ------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v14/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+}
+/* ------------------------------------------------------------------------- */
+/* BASES */
+/* ------------------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Abel', verdena, sans-serif;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* 10px */
+}
+
+body, main {
+    margin: 0;
+    font-size: 1.6rem;
+    background-color: #eee;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+
+
+/* ------------------------------------------------------------------------- */
+/* LE HEADER */
+/* ------------------------------------------------------------------------- */
+
+header {
+    width: 100%;
+    min-height: 10vh;
+    /*    border: 2px red solid;*/
+
+}
+
+/* > les imgs < */
+header img {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    margin: 20px;
+}
+
+#logo {
+    display: flex;
+    align-content: center;
+}
+
+/*---  LE MENU ---*/
+nav {
+    float: right; 
+    line-height: 10vh;
+    margin-right: 10px;
+}
+
+nav ul {
+    display: inline-block;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 20px 0 10px;
+    
+}
+
+nav a {
+    padding: 1px;
+    color: #16125A;
+    transition: 0.4s;
+}
+
+nav a:hover {
+    color: #FF4F4F;
+    border-bottom: 1px #FF4F4F solid;
+    transition: 0.4s;
+}
+
+/* ------------------------------------------------------------------------- */
+/* LE CONTENU */
+/* ------------------------------------------------------------------------- */
+
+
+/*---  LA LIBRARIE---*/
+#library {
+    position: absolute;
+    width: 100%;
+
+}
+.library_content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
+    background-color: white;
+    z-index: 99;
+
+}
+
+.libraryClose {
+    display: none;
+    cursor: pointer;
+    float: right;
+}
+
+.libraryOpen {
+    cursor: pointer;
+    float: right;
+}
+
+/*---  LE CERCLE MUSICAL --*/
+#container {
+    width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
+
+}
+
+#cercle_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
+    /*    border: 2px red solid;*/
+}
+
+
+#cercle {
+    width: 500px;
+    height: 500px;
+    background-color: #1b212c;
+    border-radius: 100%;
+
+}
+
+#cercle_background {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 485px;
+    height: 485px;
+    background-color: #eee;
+    border-radius: 100%;
+}
+
+
+/* > les imgs < */
+#cercle_logo img {
+    width: 350px;
+    margin: 20px;
+}
+
+#library img {
+    margin: 15px 15px 0px 0px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* LES OUTILS UTILISATEURS */
+/* ------------------------------------------------------------------------- */
+
+
+#user_tools {
+    min-height: 28vh;
+    width: 100%;
+
+}
+
+#launchpad {
+    margin: 0 auto;
+    min-height: 19vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.launchpad {
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    border-radius: 25px;
+    border: #1B212C 1px solid;
+    color: #FF4F4F;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.launchpad:hover {
+    background-color: #16125A;
+    color: white;
+    transition: 0.4s;
+}
+
+/* > les titres < */
+
+#launchpad h1 {
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 2em;
+}
+
+#tools h1 {
+    margin: 0 auto;
+    padding: 10px; 
+}
+
+#tools {
+    margin: 0 auto;
+    min-height: 9vh;
+    max-height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.tools {
+    min-width: 60px;
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+    background-color: #16125A;
+    border-radius: 10px;
+    border: #1B212C 1px solid;
+    color: #FF4F4F;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+/* ------------------------------------------------------------------------- */
+/* LE FOOTER */
+/* ------------------------------------------------------------------------- */
+
+footer {
+    min-height: 2vh;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* ------------------------------------------------------------------------- */
+/* LES ANIMATIONS */
+/* ------------------------------------------------------------------------- */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.4s;
+    animation-delay: 0s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
+
+.pulse {
+    box-shadow: 0 0 0 rgba(255,255,255, 0.4);
+    animation: pulse 2s infinite;
+}
+.pulse:hover {
+    animation: none;
+}
+
+
+.display_none {
+    display: none;
+}
