@@ -18,7 +18,7 @@ session_start();
             <?php include 'inc/header.php' ?>
 
             <?php
-            if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+            if (isset($_SESSION['session_id']) && isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                 echo '<div class="main_container">';
                 echo '<div class="container_connexion">';
                 echo '<h1>Vous êtes déjà inscrit...';
@@ -53,10 +53,10 @@ session_start();
                                            name="password"
                                            id="password"
                                            value=""
-                                           placeholder="mot de passe"
+                                           placeholder="votre mot de passe"
                                            maxlength="12"
                                            required>
-                                    doit contenir des majuscules, des miniscules et des chiffres
+                                    6 caractères minimum dont au moins une majuscule et un chiffre
                                 </div>
 
                                 <div class="profil_input">
@@ -64,10 +64,10 @@ session_start();
                                            name="password_confirmation"
                                            id="password_confirmation"
                                            value=""
-                                           placeholder="confirmez"
+                                           placeholder="confirmez votre mot de passe"
                                            maxlength="12"
                                            required>
-                                    confirmez votre mot de passe
+                                    
                                 </div>
 
                                 <div class="profil_input">
@@ -75,7 +75,7 @@ session_start();
                                            name="email"
                                            id="email"
                                            value=""
-                                           placeholder="email"
+                                           placeholder="votre email"
                                            maxlength="64"
                                            required>                           
                                 </div>
@@ -89,7 +89,7 @@ session_start();
                                            placeholder="confirmez votre email"
                                            maxlength="64"
                                            required>
-                                    confirmez votre email
+                                    
                                 </div>
 
                                 <div id="alert" class="alert">

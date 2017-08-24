@@ -21,7 +21,7 @@ session_start();
             <!-- LE MAIN CONTAINER -->
             <div class="main_container">
                 <?php
-                if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && isset($_SESSION['admin'])) {
+                if (isset($_SESSION['session_id']) && isset($_SESSION['id']) && isset($_SESSION['pseudo']) && isset($_SESSION['admin'])) {
                     echo "good";
                 } else {
                     echo "Cette page n'existe pas...";

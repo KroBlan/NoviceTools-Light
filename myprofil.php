@@ -17,7 +17,7 @@ session_start();
             <?php include 'inc/header.php' ?>
 
             <?php
-            if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+            if (isset($_SESSION['session_id']) && isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                 ?>
 
                 <!-- LE MAIN CONTAINER -->

@@ -19,7 +19,7 @@ session_start();
             <?php include 'inc/header.php' ?>
 
             <?php
-            if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+            if (isset($_SESSION['session_id']) && isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                 echo '<div class="main_container">';
                 echo '<div class="container_connexion">';
                 echo '<h1>Vous êtes déjà connecté...';
@@ -43,7 +43,7 @@ session_start();
                                     <input type="text"
                                            name="pseudo"
                                            id="pseudo"
-                                           value="ultime"
+                                           value="demo"
                                            placeholder="pseudo"
                                            maxlength="24"
                                            required>
@@ -54,7 +54,7 @@ session_start();
                                     <input type="password"
                                            name="password"
                                            id="password"
-                                           value="Ultime81"
+                                           value="Demo2017"
                                            placeholder="mot de passe"
                                            maxlength="12"
                                            required>

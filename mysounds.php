@@ -17,7 +17,7 @@ session_start();
             <?php include 'inc/header.php' ?>
 
             <?php
-            if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+            if (isset($_SESSION['session_id']) && isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                 ?>
 
                 <!-- LE MAIN CONTAINER -->
@@ -26,25 +26,68 @@ session_start();
 
                     <div class="main_content">
                         <h2> MES SONS </h2>
-                        <div class="mysounds">
-                            <h3>nom du son</h3>
-                            <div class="mysounds_options">
-                                test
+                        <form id="searchForm" name="identification" action="#" method="post">
+                            <div class="profil_input">
+                                <input type="text"
+                                       name="search"
+                                       id="search"
+                                       value=""
+                                       placeholder="rechercher"
+                                       maxlength="24"
+                                       required>
                             </div>
-                        </div>
-                        <div class="mysounds">
+                        </form>
 
-                        </div>
-                        <div class="mysounds">
+                        <table>
 
-                        </div>
-                        <div class="mysounds">
+                            <thead> <!-- En-tête du tableau -->
+                                <tr>
+                                    <th>NOM</th>
+                                    <th colspan="2">ttttttttt</th>
+                                </tr>
+                            </thead>
 
-                        </div>
-                        <div class="mysounds">
+                            <tfoot> <!-- Pied de tableau -->
+                                <tr>
+                                    <th></th>
+                                    <th colspan="2"></th>
+                                </tr>
+                            </tfoot>
 
-                        </div>
-                        
+                            <tbody> <!-- Corps du tableau -->
+                                <tr>
+                                    <td>Son 1</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Son 2</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Son 3</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Son 4</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Son 5</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Son 6</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
 
                     </div>
 
@@ -53,20 +96,20 @@ session_start();
 
                 </div>
 
-                <?php
-            } else {
+    <?php
+} else {
 
-                echo '<div class="main_container">';
-                echo '<div class="container_connexion">';
-                echo '<h1>Vous devez être connecté';
-                echo '</div></div>';
-                header('location: ./login.php');
-                exit;
-            }
-            ?>
+    echo '<div class="main_container">';
+    echo '<div class="container_connexion">';
+    echo '<h1>Vous devez être connecté';
+    echo '</div></div>';
+    header('location: ./login.php');
+    exit;
+}
+?>
 
             <!-- LE FOOTER -->
-            <?php include 'inc/footer.php' ?>
+<?php include 'inc/footer.php' ?>
 
 
         </main>
